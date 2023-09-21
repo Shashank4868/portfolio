@@ -1,0 +1,19 @@
+.contaier {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 1rem;
+  margin: auto;
+  /* margin-left: 2%; */
+  overflow: auto;
+  background-color: #fff;
+}
+
+.loc {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  align-items: center;
+}

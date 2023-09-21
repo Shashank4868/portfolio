@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "GeneralSans-Semibold";
+  src: url("../../../fonts/GeneralSans-Semibold.woff2") format("woff2"),
+    url("../../../fonts/GeneralSans-Semibold.woff") format("woff"),
+    url("../../../fonts/GeneralSans-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+.mid__container {
+  display: flex;
+}
+
+.mid__container__title {
+  margin: auto;
+  width: 30%;
+}
+
+.mid__text_small {
+  margin: auto;
+  font-size: 20px;
+}
+
+.btn {
+  margin: auto;
+}
+
+.name {
+  color: #025464;
+  font-size: 40px;
+  font-family: "GeneralSans-SemiBold";
+}
+
+.mid__container__image {
+  width: 60%;
+}

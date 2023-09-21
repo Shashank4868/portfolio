@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.main__text {
+  font-size: 1.2rem;
+}
+
+.main__text__name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #025464;
+}
+
+.left__image {
+  width: 20%;
+  height: auto;
+  margin: 5%;
+  /* margin-top: 5%;
+  margin-left: 5%; */
+  border-radius: 20px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+}
+
+.skills__hobbies__achievements__certifications {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  padding: 15px 30px;
+  width: 25%;
+  height: 100%;
+  margin: auto;
+  border-radius: 20px;
+  background-color: #025464;
+  font-size: 1rem;
+  color: white;
+}
+
+.boxes {
+  transition: all 0.5s ease;
+  color: #407bff;
+  text-align: center;
+  padding: 14px 30px;
+  font-size: 14px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #407bff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px;
+  cursor: default;
+}
+
+.boxesa {
+  transition: all 0.5s ease;
+  color: #407bff;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #407bff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px;
+  cursor: pointer;
+}
+
+.boxes:hover {
+  color: #ffffff;
+  background-color: #407bff;
+  transition: all 0.5s ease;
+}
+.boxesa:hover {
+  color: #ffffff;
+  background-color: #407bff;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  color: #025464;
+  font-size: 3rem;
+}
