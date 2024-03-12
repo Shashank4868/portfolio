@@ -3,61 +3,14 @@ import ProjectCard from "./Project-card";
 import classes from "./Projects.module.css";
 import todo from "../../../assets/todo.png";
 import food from "../../../assets/food.png";
+import spiceNest from "../../../assets/spicenest.jpg";
 
 const DATA = [
-  {
-    id: 1,
-    title: "To-do App",
-    text: "A simple to-do app to help you plan your day.",
-    src: todo,
-    alt: "todo",
-    link: "https://yourtodoist.netlify.app/",
-    tech: [
-      {
-        id: 1,
-        title: "HTML",
-      },
-      {
-        id: 2,
-        title: "CSS",
-      },
-      {
-        id: 3,
-        title: "JavaScript",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Food Order App",
-    text: "A web app used as a website for hotels to help them manage their food orders.",
-    src: food,
-    alt: "food-order",
-    link: "https://hungerkiller.netlify.app/",
-    tech: [
-      {
-        id: 1,
-        title: "HTML",
-      },
-      {
-        id: 2,
-        title: "CSS",
-      },
-      {
-        id: 3,
-        title: "JavaScript",
-      },
-      {
-        id: 4,
-        title: "ReactJS",
-      },
-    ],
-  },
   {
     id: 2,
     title: "SpiceNest",
     text: "A web application made using MERN stack technology to login and order your favourite food.",
-    src: food,
+    src: spiceNest,
     alt: "Hotel Management Web Application",
     link: "https://github.com/Shashank4868/Spicenest",
     tech: [
@@ -91,6 +44,55 @@ const DATA = [
       },
     ],
   },
+
+  {
+    id: 2,
+    title: "Food Order App",
+    text: "A web app used as a website for hotels to help them manage their food orders.",
+    src: food,
+    alt: "food-order",
+    link: "https://github.com/Shashank4868/Food-order-app",
+    tech: [
+      {
+        id: 1,
+        title: "HTML",
+      },
+      {
+        id: 2,
+        title: "CSS",
+      },
+      {
+        id: 3,
+        title: "JavaScript",
+      },
+      {
+        id: 4,
+        title: "ReactJS",
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "To-do App",
+    text: "A simple to-do app to help you plan your day.",
+    src: todo,
+    alt: "todo",
+    link: "https://github.com/Shashank4868/To-do-App",
+    tech: [
+      {
+        id: 1,
+        title: "HTML",
+      },
+      {
+        id: 2,
+        title: "CSS",
+      },
+      {
+        id: 3,
+        title: "JavaScript",
+      },
+    ],
+  },
 ];
 
 const Projects = () => {
@@ -110,8 +112,8 @@ const Projects = () => {
         always open to new ideas and feedback.
       </div>
       <ul className={classes.cards}>
-        {DATA.map((item) => (
-          <li key={item.id}>
+        {DATA.map((item, index) => (
+          <li key={index}>
             <ProjectCard
               title={item.title}
               src={item.src}

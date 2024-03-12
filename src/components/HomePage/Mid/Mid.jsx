@@ -1,7 +1,7 @@
 import developer from "../../../images/developer.svg";
 import classes from "./Mid.module.css";
 import Button from "../../../reusable/Button";
-import doc from "../../../files/resume.pdf";
+import doc from "../../../files/Resume_gdoc6.pdf";
 
 const Mid = () => {
   return (

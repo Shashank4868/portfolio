@@ -6,8 +6,17 @@ const skills = [
   "HTML",
   "CSS",
   "JavaScript",
+  "Typescript",
+  "NextJS",
+  "ExpressJS",
   "ReactJS",
   "NodeJS",
+  "SQL",
+  "MySQL",
+  "MongoDB",
+  "Prisma",
+  "PostgreSQL",
+  "C",
   "C++",
   "Python",
   "Data Structures and Algorithms",
@@ -23,7 +32,7 @@ const hobbies = [
 
 const achievements = [
   "State Rank Holder in 12th Intermediate Examinations",
-  "Solved 400+ questions on leetcode",
+  "Solved 500+ questions on leetcode",
   "Solved 100+ questions on Hackerrank",
 ];
 
