@@ -1,4 +1,4 @@
-// Navbar: mobile menu toggle, scrolled state, active link on scroll.
+// Navbar: mobile menu toggle, scrolled state, active link, in-page scrolling.
 (function () {
   var nav = document.getElementById('nav');
   var toggle = document.getElementById('navToggle');
@@ -46,7 +46,6 @@
     sections.forEach(function (s) {
       if (s.getBoundingClientRect().top <= line) current = s;
     });
-    // At the very bottom, the last section wins even if it's short.
     var doc = document.documentElement;
     if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) current = sections[sections.length - 1];
     return current;
@@ -65,8 +64,7 @@
   window.addEventListener('resize', updateActive);
   updateActive();
 
-  // In-page links (nav, Hire Me, View My Work): scroll by script so they work
-  // in any host, and land just below the sticky navbar.
+  // In-page links scroll by script so they work in any host and land below the sticky navbar.
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -75,24 +73,33 @@
     if (!target) return;
     e.preventDefault();
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var top = target.getBoundingClientRect().top + window.scrollY - (id === 'home' ? nav.offsetHeight : nav.offsetHeight - 1);
-    window.scrollTo({ top: id === 'home' ? 0 : Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
+    var top = id === 'home' ? 0 : target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + 1;
+    window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
     if (navAnchors.some(function (n) { return n.getAttribute('href') === '#' + id; })) setActive(id);
   });
 })();
 
-// Projects: sync carousel dots with horizontal scroll (tablet/phone layout).
+// Diagram tabs (Architecture / Auth & payment flow), with arrow-key support.
 (function () {
-  var track = document.getElementById('projectTrack');
-  var dots = document.querySelectorAll('#projectDots i');
-  if (!track || !dots.length) return;
-  track.addEventListener('scroll', function () {
-    var cards = track.children;
-    var i = Math.round(track.scrollLeft / (cards[0].offsetWidth + 18));
-    i = Math.max(0, Math.min(dots.length - 1, i));
-    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) i = dots.length - 1;
-    dots.forEach(function (d, j) { d.classList.toggle('is-active', j === i); });
-  }, { passive: true });
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs [role="tab"]'));
+  if (!tabs.length) return;
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      select(next); next.focus();
+    });
+  });
 })();
 
 // Footer: copy email, current year.
@@ -115,18 +122,4 @@
       }, selectText);
     } catch (e) { selectText(); }
   });
-})();
-
-// Skills: replay the bar fill when the grid scrolls into view.
-// Bars are already at full width without JS, so nothing is hidden by default.
-(function () {
-  var grid = document.getElementById('skillGrid');
-  if (!grid || !('IntersectionObserver' in window)) return;
-  var seen = false;
-  new IntersectionObserver(function (entries, obs) {
-    if (seen || !entries[0].isIntersecting) return;
-    seen = true;
-    grid.classList.add('is-animating');
-    obs.disconnect();
-  }, { threshold: 0.25 }).observe(grid);
 })();

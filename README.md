@@ -5,25 +5,22 @@ Personal portfolio of Shashank Raj, Java backend engineer. Plain HTML, CSS and J
 ```
 index.html          the page
 css/style.css       all styles
-js/main.js          mobile menu, active nav link, skill bars, project carousel, copy email
-assets/             resume PDF (add profile.png here)
+js/main.js          mobile menu, active nav link, diagram tabs, copy email
+assets/             photo, resume PDF, diagrams
 ```
 
-## Add your photo
+## Assets
 
-1. Save a photo as `assets/profile.png` (a cut-out on a transparent or plain background looks best).
-2. In `index.html`, replace the `<div class="hero__photo hero__photo--placeholder">…</div>` block with:
-
-```html
-<img class="hero__photo" src="assets/profile.png" alt="Shashank Raj">
-```
+- `assets/profile.png`: cut-out profile photo used in the hero (replace with a same-named PNG to update it).
+- `assets/Shashank_Raj_Resume.pdf`: the resume behind "Download CV". Keep the site text in sync with it.
+- `assets/paynow-sequence.png`: auth and payment sequence diagram for the Paynow project.
 
 ## Deploy on GitHub Pages
 
-1. Create a repo named `shashank4868.github.io` (or any name).
-2. Push these files to the `main` branch (`preview.html` and `build_preview.py` are not needed).
-3. In the repo: Settings → Pages → Source: "Deploy from a branch" → `main` / root → Save.
-4. The site goes live at `https://shashank4868.github.io` in a minute or two.
+This repo deploys from `master`:
+
+1. In the repo: Settings → Pages → Source: "Deploy from a branch" → `master` / `(root)` → Save.
+2. The site goes live at `https://shashank4868.github.io/portfolio/` within a minute or two of each push.
 
 ## Deploy on Netlify
 
