@@ -1,0 +1,132 @@
+// Navbar: mobile menu toggle, scrolled state, active link on scroll.
+(function () {
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+
+  function closeMenu() {
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  function onScroll() {
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Highlight the nav link for the section in view, based on scroll position.
+  var navAnchors = Array.prototype.slice.call(links.querySelectorAll('a:not(.btn)'));
+  var sections = navAnchors
+    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+
+  function setActive(id) {
+    navAnchors.forEach(function (a) {
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  function currentSection() {
+    var line = nav.offsetHeight + window.innerHeight * 0.3; // a line 30% down, below the navbar
+    var current = sections[0];
+    sections.forEach(function (s) {
+      if (s.getBoundingClientRect().top <= line) current = s;
+    });
+    // At the very bottom, the last section wins even if it's short.
+    var doc = document.documentElement;
+    if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) current = sections[sections.length - 1];
+    return current;
+  }
+
+  var ticking = false;
+  function updateActive() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      if (sections.length) setActive(currentSection().id);
+    });
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  window.addEventListener('resize', updateActive);
+  updateActive();
+
+  // In-page links (nav, Hire Me, View My Work): scroll by script so they work
+  // in any host, and land just below the sticky navbar.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var target = id ? document.getElementById(id) : null;
+    if (!target) return;
+    e.preventDefault();
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var top = target.getBoundingClientRect().top + window.scrollY - (id === 'home' ? nav.offsetHeight : nav.offsetHeight - 1);
+    window.scrollTo({ top: id === 'home' ? 0 : Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
+    if (navAnchors.some(function (n) { return n.getAttribute('href') === '#' + id; })) setActive(id);
+  });
+})();
+
+// Projects: sync carousel dots with horizontal scroll (tablet/phone layout).
+(function () {
+  var track = document.getElementById('projectTrack');
+  var dots = document.querySelectorAll('#projectDots i');
+  if (!track || !dots.length) return;
+  track.addEventListener('scroll', function () {
+    var cards = track.children;
+    var i = Math.round(track.scrollLeft / (cards[0].offsetWidth + 18));
+    i = Math.max(0, Math.min(dots.length - 1, i));
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) i = dots.length - 1;
+    dots.forEach(function (d, j) { d.classList.toggle('is-active', j === i); });
+  }, { passive: true });
+})();
+
+// Footer: copy email, current year.
+(function () {
+  var btn = document.getElementById('copyEmail');
+  var text = document.getElementById('emailText');
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+  if (!btn || !text) return;
+  function selectText() {
+    var r = document.createRange(); r.selectNodeContents(text);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = 'Selected';
+  }
+  btn.addEventListener('click', function () {
+    try {
+      navigator.clipboard.writeText(text.textContent.trim()).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      }, selectText);
+    } catch (e) { selectText(); }
+  });
+})();
+
+// Skills: replay the bar fill when the grid scrolls into view.
+// Bars are already at full width without JS, so nothing is hidden by default.
+(function () {
+  var grid = document.getElementById('skillGrid');
+  if (!grid || !('IntersectionObserver' in window)) return;
+  var seen = false;
+  new IntersectionObserver(function (entries, obs) {
+    if (seen || !entries[0].isIntersecting) return;
+    seen = true;
+    grid.classList.add('is-animating');
+    obs.disconnect();
+  }, { threshold: 0.25 }).observe(grid);
+})();

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shashank Raj</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Shashank Raj, Java backend engineer at Deloitte USI. Spring Boot microservices, GraphQL and REST APIs, Apache Kafka.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="#home" aria-label="Shashank Raj, home">
+        <span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="logo__text">shashank<span>.dev</span></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home" class="is-active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta-mobile">Hire Me <span aria-hidden="true">↗</span></a>
+      </nav>
+
+      <a href="#contact" class="btn btn--primary btn--sm nav__cta">Hire Me <span aria-hidden="true">↗</span></a>
+
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <div class="container hero__grid">
+
+        <div class="hero__copy">
+          <span class="pill">Java Backend Engineer</span>
+          <h1 class="hero__title">
+            Hi, I'm <span class="accent">Shashank</span>
+            <span class="hero__sub">I build backends that hold up in production.</span>
+          </h1>
+          <p class="hero__lede">
+            I design Spring Boot microservices, GraphQL and REST APIs, and Kafka-driven systems.
+            At Deloitte USI I keep financial services fast and reliable for a global asset-management client.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View My Work <span aria-hidden="true">↗</span></a>
+            <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--ghost" download>
+              Download CV
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14" /></svg>
+            </a>
+          </div>
+
+          <p class="eyebrow">Technologies I work with</p>
+          <ul class="tech-row" aria-label="Technologies">
+            <li class="chip" style="--c:#E76F00" title="Java">Jv</li>
+            <li class="chip" style="--c:#6DB33F" title="Spring Boot">Sb</li>
+            <li class="chip" style="--c:#E5E7EB" title="Apache Kafka">Kf</li>
+            <li class="chip" style="--c:#4F8CC9" title="PostgreSQL">Pg</li>
+            <li class="chip" style="--c:#E535AB" title="GraphQL">Gq</li>
+            <li class="chip" style="--c:#2496ED" title="Docker">Dk</li>
+            <li class="chip" style="--c:#F05032" title="Git">Gt</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__dots"></div>
+          <div class="hero__orb"></div>
+
+          <!-- Cut-out photo: head rises above the circle, shoulders are clipped to it. -->
+          <div class="hero__figure">
+            <img class="hero__photo" src="assets/profile.png" alt="Shashank Raj" width="760" height="862">
+          </div>
+
+          <svg class="hero__doodle" viewBox="0 0 80 90">
+            <path d="M60 6c-26 6-44 26-38 44 5 14 22 12 20 0-2-11-20-9-24 6-4 13 4 24 14 30" />
+            <path d="M24 80l8 7 2-10" />
+          </svg>
+
+          <figure class="code-card">
+            <figcaption><span class="code-card__tag">&lt;/&gt;</span> Engineer.java <i></i></figcaption>
+<pre><code><span class="k">record</span> <span class="t">Engineer</span>(
+  <span class="t">String</span> name,
+  <span class="t">List</span>&lt;<span class="t">String</span>&gt; stack,
+  <span class="t">String</span> focus
+) {}
+
+<span class="k">var</span> me = <span class="k">new</span> <span class="t">Engineer</span>(
+  <span class="s">"Shashank"</span>,
+  <span class="t">List</span>.of(<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>,
+          <span class="s">"Kafka"</span>, <span class="s">"PostgreSQL"</span>),
+  <span class="s">"reliable backends"</span>
+);</code></pre>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__copy">
+          <span class="pill">About me</span>
+          <h2 class="section__title">I'm passionate about building backend systems that stay fast</h2>
+          <p>
+            I'm a Java backend engineer with 2 years at Deloitte USI, working on Spring Boot microservices and
+            GraphQL/REST APIs in a regulated financial environment. Most days that means shipping features,
+            tracing production issues through Splunk, and making slow SQL fast.
+          </p>
+          <p>
+            Outside work I build event-driven systems with Kafka and keep my fundamentals sharp with 650+ LeetCode problems.
+          </p>
+          <a href="https://www.linkedin.com/in/shashank4868" target="_blank" rel="noopener" class="btn btn--ghost">
+            Learn More About Me
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </a>
+        </div>
+
+        <ul class="stats" aria-label="Highlights">
+          <li class="stat">
+            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+            <span><strong class="stat__num">2+</strong><span class="stat__label">Years Experience</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+            <span><strong class="stat__num">650+</strong><span class="stat__label">LeetCode Problems</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3"/></svg></span>
+            <span><strong class="stat__num">3</strong><span class="stat__label">Applause Awards</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></span>
+            <span><strong class="stat__num">9.11</strong><span class="stat__label">CGPA, B.Tech IT</span></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow eyebrow--accent">My skills</span>
+          <h2 class="section__title">Technologies I Master</h2>
+        </header>
+
+        <ul class="skill-grid" id="skillGrid">
+          <li class="skill" style="--p:90%;--c:#E76F00"><span class="skill__icon">Jv</span><span class="skill__name">Java</span><span class="skill__pct">90%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:85%;--c:#6DB33F"><span class="skill__icon">Sb</span><span class="skill__name">Spring Boot</span><span class="skill__pct">85%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:85%;--c:#F2C14E"><span class="skill__icon">Sq</span><span class="skill__name">SQL</span><span class="skill__pct">85%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:85%;--c:#3DDC97"><span class="skill__icon">{ }</span><span class="skill__name">REST APIs</span><span class="skill__pct">85%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:80%;--c:#BCAE79"><span class="skill__icon">Hb</span><span class="skill__name">Hibernate / JPA</span><span class="skill__pct">80%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:80%;--c:#4F8CC9"><span class="skill__icon">Pg</span><span class="skill__name">PostgreSQL / Oracle</span><span class="skill__pct">80%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:75%;--c:#E535AB"><span class="skill__icon">Gq</span><span class="skill__name">GraphQL</span><span class="skill__pct">75%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:70%;--c:#9B8CFF"><span class="skill__icon">Ss</span><span class="skill__name">Spring Security &amp; OAuth2</span><span class="skill__pct">70%</span><span class="bar"><i></i></span></li>
+          <li class="skill" style="--p:70%;--c:#E5E7EB"><span class="skill__icon">Kf</span><span class="skill__name">Apache Kafka</span><span class="skill__pct">70%</span><span class="bar"><i></i></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow eyebrow--accent">Featured projects</span>
+          <h2 class="section__title">Some of My Recent Work</h2>
+        </header>
+
+        <div class="project-track" id="projectTrack">
+
+          <!-- 01 · Payment system -->
+          <article class="project">
+            <div class="project__media">
+              <span class="project__num">01</span>
+              <svg class="diagram" viewBox="0 0 360 200" role="img" aria-label="Gateway routes to payment service, which publishes to Kafka; fraud detection and notification services consume from Kafka.">
+                <defs><marker id="a1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" class="d-arrow"/></marker></defs>
+                <g class="d-node d-hl"><rect x="16" y="78" width="78" height="44" rx="7"/><text x="55" y="98">Gateway</text><text class="d-sub" x="55" y="112">JWT auth</text></g>
+                <g class="d-node"><rect x="122" y="78" width="78" height="44" rx="7"/><text x="161" y="98">Payment</text><text class="d-sub" x="161" y="112">idempotent</text></g>
+                <g class="d-bus"><rect x="226" y="30" width="26" height="140" rx="6"/><text x="239" y="104" transform="rotate(-90 239 100)">KAFKA</text></g>
+                <g class="d-node"><rect x="272" y="40" width="74" height="44" rx="7"/><text x="309" y="60">Fraud</text><text class="d-sub" x="309" y="74">approve/flag</text></g>
+                <g class="d-node"><rect x="272" y="116" width="74" height="44" rx="7"/><text x="309" y="136">Notify</text><text class="d-sub" x="309" y="150">email</text></g>
+                <path class="d-edge" d="M94 100H120" marker-end="url(#a1)"/>
+                <path class="d-edge" d="M200 100H224" marker-end="url(#a1)"/>
+                <path class="d-edge" d="M252 62H270" marker-end="url(#a1)"/>
+                <path class="d-edge" d="M252 138H270" marker-end="url(#a1)"/>
+              </svg>
+            </div>
+            <div class="project__body">
+              <h3>Distributed Payment Processing System</h3>
+              <p>Event-driven payment platform of 5 Spring Boot microservices talking over Kafka, with OAuth2/OIDC via Keycloak, idempotent payment creation and a fraud-detection pipeline.</p>
+              <ul class="project__tags"><li>Java 17</li><li>Spring Boot</li><li>Kafka</li><li>Keycloak</li><li>PostgreSQL</li><li>Docker</li></ul>
+              <a class="project__link" href="https://github.com/Shashank4868/Paynow" target="_blank" rel="noopener">View Project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <!-- 02 · Deloitte GraphQL + query tuning -->
+          <article class="project">
+            <div class="project__media">
+              <span class="project__num">02</span>
+              <svg class="diagram" viewBox="0 0 360 200" role="img" aria-label="Legacy holdings tables feed a GraphQL layer of schema, resolvers and mappers that serves downstream microservices; query time dropped from about 5 seconds to under 600 milliseconds.">
+                <defs><marker id="a2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" class="d-arrow"/></marker></defs>
+                <g class="d-db"><ellipse cx="56" cy="62" rx="36" ry="9"/><path d="M20 62v42c0 5 16 9 36 9s36-4 36-9V62"/><text x="56" y="94">Holdings</text></g>
+                <g class="d-db"><ellipse cx="56" cy="132" rx="36" ry="9"/><path d="M20 132v30c0 5 16 9 36 9s36-4 36-9v-30"/><text x="56" y="158">Legacy</text></g>
+                <g class="d-node d-hl"><rect x="128" y="56" width="104" height="100" rx="8"/><text x="180" y="82">GraphQL</text><text class="d-sub" x="180" y="104">schema</text><text class="d-sub" x="180" y="120">resolvers</text><text class="d-sub" x="180" y="136">mappers · DAO</text></g>
+                <g class="d-node"><rect x="268" y="46" width="78" height="36" rx="7"/><text x="307" y="69">Service A</text></g>
+                <g class="d-node"><rect x="268" y="130" width="78" height="36" rx="7"/><text x="307" y="153">Service B</text></g>
+                <path class="d-edge" d="M92 86H126" marker-end="url(#a2)"/>
+                <path class="d-edge" d="M92 148H110V130H126" marker-end="url(#a2)"/>
+                <path class="d-edge" d="M232 84H250V64H266" marker-end="url(#a2)"/>
+                <path class="d-edge" d="M232 128H250V148H266" marker-end="url(#a2)"/>
+                <g class="d-badge"><rect x="236" y="14" width="110" height="22" rx="11"/><text x="291" y="29">~5s → 300–600ms</text></g>
+              </svg>
+            </div>
+            <div class="project__body">
+              <h3>Holdings GraphQL API Layer</h3>
+              <p>At Deloitte USI: built 5–8 GraphQL APIs exposing holdings data from legacy tables to downstream microservices, and cut slow API queries from ~5s to 300–600ms with indexing and rewrites.</p>
+              <ul class="project__tags"><li>Spring Boot</li><li>GraphQL</li><li>Hibernate/JPA</li><li>PostgreSQL</li><li>Oracle</li></ul>
+              <span class="project__link project__link--muted">Client work · code is private</span>
+            </div>
+          </article>
+
+          <!-- 03 · HighRadius -->
+          <article class="project">
+            <div class="project__media">
+              <span class="project__num">03</span>
+              <svg class="diagram" viewBox="0 0 360 200" role="img" aria-label="React front end calls Java Servlets, which call a machine learning model that forecasts each customer's next order amount.">
+                <defs><marker id="a3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" class="d-arrow"/></marker></defs>
+                <g class="d-node"><rect x="16" y="34" width="82" height="40" rx="7"/><text x="57" y="58">React UI</text></g>
+                <g class="d-node d-hl"><rect x="139" y="34" width="82" height="40" rx="7"/><text x="180" y="58">Servlets</text></g>
+                <g class="d-node"><rect x="262" y="34" width="82" height="40" rx="7"/><text x="303" y="58">ML model</text></g>
+                <path class="d-edge" d="M98 54H137" marker-end="url(#a3)"/>
+                <path class="d-edge" d="M221 54H260" marker-end="url(#a3)"/>
+                <g class="d-chart">
+                  <path class="d-grid" d="M30 170H330M30 140H330M30 110H330"/>
+                  <path class="d-line" d="M30 158L70 150L110 154L150 138L190 142L230 126"/>
+                  <path class="d-line d-forecast" d="M230 126L270 116L310 106"/>
+                  <circle class="d-dot" cx="310" cy="106" r="4"/>
+                  <text class="d-sub" x="300" y="94">next order</text>
+                </g>
+              </svg>
+            </div>
+            <div class="project__body">
+              <h3>Order Amount Prediction</h3>
+              <p>At HighRadius: full-stack fintech B2B SaaS app with a feature that forecasts each customer's next purchase value, supporting inventory and revenue planning.</p>
+              <ul class="project__tags"><li>Java Servlets</li><li>React.js</li><li>Machine learning</li></ul>
+              <span class="project__link project__link--muted">Internship project · 2023</span>
+            </div>
+          </article>
+
+        </div>
+        <div class="dots" id="projectDots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Contact / Footer ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__cta">
+          <span class="eyebrow eyebrow--accent">Let's work together</span>
+          <h2 class="section__title">Looking for a backend engineer?</h2>
+          <p>I'm open to Java backend and software engineering roles in Hyderabad, Bangalore, Delhi NCR or remote. Drop me a line.</p>
+          <a href="mailto:shashankrajjais@gmail.com" class="btn btn--primary">Get In Touch <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="footer__contact">
+          <span class="eyebrow eyebrow--accent">Find me online</span>
+          <ul class="socials">
+            <li><a href="https://github.com/shashank4868" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/shashank4868" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 11h4M19 9v4"/></svg>LinkedIn</a></li>
+            <li><a href="https://leetcode.com/u/Shashank4868" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l6-6-6-6M12 19h8"/></svg>LeetCode</a></li>
+          </ul>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <span class="contact-line__text" id="emailText">shashankrajjais@gmail.com</span>
+            <button class="copy-btn" id="copyEmail" type="button">Copy</button>
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <span class="contact-line__text">Hyderabad, India</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Shashank Raj. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
