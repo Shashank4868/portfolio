@@ -42,6 +42,7 @@
   <main>
     <!-- ===== Hero ===== -->
     <section class="hero" id="home">
+      <canvas class="hero__net" id="heroNet" aria-hidden="true"></canvas>
       <div class="container hero__grid">
 
         <div class="hero__copy">
@@ -75,21 +76,21 @@
           </ul>
         </div>
 
-        <div class="hero__visual" aria-hidden="true">
-          <div class="hero__dots"></div>
-          <div class="hero__orb"></div>
+        <div class="hero__visual" id="heroVisual" aria-hidden="true">
+          <div class="hero__dots" data-depth="1.4"></div>
+          <div class="hero__orb" data-depth="0.4"></div>
 
           <!-- Cut-out photo: head rises above the circle, shoulders are clipped to it. -->
-          <div class="hero__figure">
+          <div class="hero__figure" data-depth="0.8">
             <img class="hero__photo" src="assets/profile.png" alt="" width="760" height="862">
           </div>
 
-          <svg class="hero__doodle" viewBox="0 0 80 90">
+          <svg class="hero__doodle" viewBox="0 0 80 90" data-depth="1.6">
             <path d="M60 6c-26 6-44 26-38 44 5 14 22 12 20 0-2-11-20-9-24 6-4 13 4 24 14 30" />
             <path d="M24 80l8 7 2-10" />
           </svg>
 
-          <figure class="code-card">
+          <figure class="code-card" data-depth="1.8">
             <figcaption><span class="code-card__tag">&lt;/&gt;</span> Engineer.java <i></i></figcaption>
 <pre><code><span class="k">record</span> <span class="t">Engineer</span>(
   <span class="t">String</span> name,
@@ -163,7 +164,7 @@
             <div class="job__meta">
               <span class="job__dates">Oct 2024 – Present</span>
             </div>
-            <div class="job__card">
+            <div class="job__card" data-tilt>
               <h3>Software Engineer I</h3>
               <p class="job__org">Deloitte USI</p>
               <ul class="points">
@@ -178,7 +179,7 @@
             <div class="job__meta">
               <span class="job__dates">May 2023 – Jul 2023</span>
             </div>
-            <div class="job__card">
+            <div class="job__card" data-tilt>
               <h3>Product &amp; Engineering Intern</h3>
               <p class="job__org">HighRadius</p>
               <ul class="points">
@@ -190,7 +191,7 @@
         </ol>
 
         <div class="edu-ach">
-          <div class="mini-card">
+          <div class="mini-card" data-tilt>
             <h3 class="mini-card__title">Education</h3>
             <div class="edu">
               <div class="edu__row"><strong>B.Tech in Information Technology</strong><span class="job__dates">2020 – 2024</span></div>
@@ -201,7 +202,7 @@
               <p>St. Xavier's Intermediate College, Ranchi · 88.6% | 9th State Rank</p>
             </div>
           </div>
-          <div class="mini-card">
+          <div class="mini-card" data-tilt>
             <h3 class="mini-card__title">Achievements &amp; leadership</h3>
             <ul class="points">
               <li>Received 3 Applause Awards at Deloitte for rapid project onboarding, resolving critical production incidents with minimal guidance, and delivering API performance optimizations.</li>
@@ -241,11 +242,57 @@
         <!-- Diagram tabs -->
         <div class="diagram-panel">
           <div class="tabs" role="tablist" aria-label="Diagrams">
-            <button class="tab is-active" role="tab" id="tab-arch" aria-selected="true" aria-controls="panel-arch" type="button">Architecture</button>
+            <button class="tab is-active" role="tab" id="tab-3d" aria-selected="true" aria-controls="panel-3d" type="button">Live 3D <span class="tab__badge">new</span></button>
+            <button class="tab" role="tab" id="tab-arch" aria-selected="false" aria-controls="panel-arch" tabindex="-1" type="button">Architecture</button>
             <button class="tab" role="tab" id="tab-seq" aria-selected="false" aria-controls="panel-seq" tabindex="-1" type="button">Auth &amp; payment flow</button>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="panel-arch" aria-labelledby="tab-arch">
+          <!-- Live 3D simulation (three.js is loaded only when this section is near the viewport) -->
+          <div class="tabpanel" role="tabpanel" id="panel-3d" aria-labelledby="tab-3d">
+            <div class="p3d" id="p3d">
+              <div class="p3d__stage">
+                <div class="p3d__labels" aria-hidden="true"></div>
+                <div class="p3d__loading">Loading 3D view…</div>
+                <div class="p3d__hint">Drag to rotate · click a service</div>
+                <div class="p3d__cam" aria-label="Camera">
+                  <button type="button" data-act="rl" aria-label="Rotate left">⟲</button>
+                  <button type="button" data-act="zin" aria-label="Zoom in">+</button>
+                  <button type="button" data-act="zout" aria-label="Zoom out">−</button>
+                  <button type="button" data-act="rr" aria-label="Rotate right">⟳</button>
+                </div>
+              </div>
+
+              <aside class="p3d__rail">
+                <div class="p3d__card">
+                  <h4 class="p3d__h">Send traffic</h4>
+                  <div class="p3d__btns">
+                    <button class="p3d__btn is-primary" type="button" data-act="pay">Send payment</button>
+                    <button class="p3d__btn" type="button" data-act="login">Log in</button>
+                    <button class="p3d__btn" type="button" data-act="bad">Invalid token</button>
+                    <button class="p3d__btn" type="button" data-act="dup">Retry same key</button>
+                    <button class="p3d__btn is-wide" type="button" data-act="auto" aria-pressed="true">Auto traffic: on</button>
+                  </div>
+                </div>
+                <div class="p3d__stats">
+                  <div class="p3d__stat"><b data-stat="sent">0</b><span>sent</span></div>
+                  <div class="p3d__stat is-ok"><b data-stat="ok">0</b><span>approved</span></div>
+                  <div class="p3d__stat is-bad"><b data-stat="flag">0</b><span>flagged</span></div>
+                  <div class="p3d__stat is-warn"><b data-stat="rej">0</b><span>401 / 409</span></div>
+                </div>
+                <div class="p3d__card p3d__info" aria-live="polite">
+                  <h4>Click a service</h4>
+                  <p>Select any block in the scene to see what it does.</p>
+                </div>
+                <div class="p3d__card">
+                  <h4 class="p3d__h">Event log</h4>
+                  <ol class="p3d__log"></ol>
+                </div>
+              </aside>
+            </div>
+            <p class="diagram-note">A browser simulation of the real request flow: packets glow green when approved, red when flagged or rejected, orange on a duplicate retry.</p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-arch" aria-labelledby="tab-arch" hidden>
             <div class="scroll-x">
               <svg class="arch" viewBox="0 0 1020 470" text-anchor="middle" role="img" aria-labelledby="archTitle">
                 <title id="archTitle">Architecture: the client signs in with Keycloak and calls the API gateway with a JWT. The gateway validates the token using Keycloak's signing keys and routes to the payment service and user-profile/auth service. The payment service stores payments in PostgreSQL and publishes to the payment.created topic. The fraud-detection service consumes it and publishes to payment.decision, which updates the payment status, and to the notification topic, which the notification service consumes to send email.</title>
@@ -341,22 +388,22 @@
 
         <!-- Resume bullets, word for word -->
         <div class="highlights">
-          <article class="hl">
+          <article class="hl" data-tilt>
             <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
             <h3>Event-driven microservices</h3>
             <p>Built an event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection, notification, user-profile/auth) communicating asynchronously over Kafka.</p>
           </article>
-          <article class="hl">
+          <article class="hl" data-tilt>
             <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span>
             <h3>OAuth2 / OIDC security</h3>
             <p>Secured the gateway and services with OAuth2/OIDC via Keycloak, validating JWT bearer tokens as Spring Security resource servers and deriving sender identity from token claims instead of request payloads.</p>
           </article>
-          <article class="hl">
+          <article class="hl" data-tilt>
             <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></span>
             <h3>Idempotent payments</h3>
             <p>Implemented idempotent payment creation with idempotency keys backed by a database uniqueness constraint, plus status-transition rules and Liquibase-managed PostgreSQL schemas.</p>
           </article>
-          <article class="hl">
+          <article class="hl" data-tilt>
             <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>
             <h3>Kafka fraud pipeline</h3>
             <p>Designed a Kafka pipeline where a fraud-detection service evaluates payment events and publishes approve/flag decisions that update payment status and trigger email notifications.</p>
@@ -387,27 +434,27 @@
         </header>
 
         <div class="skill-groups">
-          <div class="skill-group">
+          <div class="skill-group" data-tilt>
             <h3>Languages</h3>
             <ul class="skill-list"><li>Java</li><li>SQL</li><li>C++</li><li>JavaScript</li></ul>
           </div>
-          <div class="skill-group">
+          <div class="skill-group" data-tilt>
             <h3>Backend</h3>
             <ul class="skill-list"><li>Spring Boot</li><li>Spring Security</li><li>Spring Data JPA</li><li>Hibernate</li><li>GraphQL</li><li>REST APIs</li><li>Spring Cloud Gateway</li></ul>
           </div>
-          <div class="skill-group">
+          <div class="skill-group" data-tilt>
             <h3>Messaging &amp; Security</h3>
             <ul class="skill-list"><li>Apache Kafka</li><li>OAuth2/OIDC</li><li>JWT</li><li>Keycloak</li></ul>
           </div>
-          <div class="skill-group">
+          <div class="skill-group" data-tilt>
             <h3>Databases</h3>
             <ul class="skill-list"><li>PostgreSQL</li><li>Oracle</li><li>MySQL</li><li>MongoDB</li><li>Liquibase</li></ul>
           </div>
-          <div class="skill-group">
+          <div class="skill-group" data-tilt>
             <h3>Tools</h3>
             <ul class="skill-list"><li>Docker Compose</li><li>Git</li><li>Splunk</li><li>AI-assisted development (Claude)</li></ul>
           </div>
-          <div class="skill-group">
+          <div class="skill-group" data-tilt>
             <h3>Concepts</h3>
             <ul class="skill-list"><li>Microservices</li><li>Event-Driven Architecture</li><li>Idempotency</li><li>Query Optimization</li></ul>
           </div>

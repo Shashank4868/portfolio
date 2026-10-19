@@ -453,3 +453,94 @@ code { font: 500 .9em var(--mono); color: #C9C2FF; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* =========================================================
+   3D layer
+   ========================================================= */
+
+/* ---------- Hero: rotating node network + parallax depth ---------- */
+.hero__net {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 30%, #000 60%);
+          mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 30%, #000 60%);
+}
+.hero__grid { position: relative; z-index: 1; }
+.hero__visual [data-depth] { transition: translate .25s ease-out; will-change: translate; }
+@media (max-width: 960px) {
+  .hero__net { -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 45%, #000 70%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 45%, #000 70%); }
+}
+
+/* ---------- Card tilt (mouse only) ---------- */
+[data-tilt] { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; transform-style: preserve-3d; will-change: transform; }
+[data-tilt].is-tilting { transition: transform .08s linear, box-shadow .25s ease, border-color .25s ease; border-color: rgba(122,108,255,.45); box-shadow: 0 26px 50px -30px rgba(122,108,255,.55); }
+
+/* ---------- Tabs badge ---------- */
+.tab__badge { font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: #fff; background: var(--violet-2); border-radius: 4px; padding: 1px 5px; margin-left: 6px; vertical-align: 1px; }
+
+/* ---------- Paynow live 3D ---------- */
+.p3d { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; }
+.p3d__stage {
+  position: relative; min-width: 0; height: 560px;
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  background: radial-gradient(70% 70% at 50% 35%, #121a3a 0%, var(--bg) 70%);
+}
+.p3d__stage canvas { display: block; width: 100%; height: 100%; cursor: grab; position: relative; z-index: 0; }
+.p3d__stage canvas:active { cursor: grabbing; }
+.p3d__labels { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.p3d__lbl {
+  position: absolute; left: 0; top: 0; white-space: nowrap;
+  font: 600 12px var(--body); color: var(--fg);
+  background: rgba(7,11,26,.78); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px;
+  transform: translate(-50%, -100%); transition: border-color .2s, color .2s;
+}
+.p3d__lbl.is-topic { font: 500 11px var(--mono); color: #C9C2FF; background: rgba(91,75,232,.28); border-color: rgba(122,108,255,.4); }
+.p3d__lbl.is-on { border-color: var(--violet); color: #fff; }
+.p3d__stage.is-portrait .p3d__lbl { font-size: 10.5px; padding: 2px 6px; }
+.p3d__stage.is-portrait .p3d__lbl.is-topic { font-size: 9.5px; }
+.p3d__loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font: 500 13px var(--mono); z-index: 2; }
+.p3d.is-ready .p3d__loading { display: none; }
+.p3d__hint {
+  position: absolute; left: 10px; bottom: 10px; z-index: 2; pointer-events: none;
+  font-size: 12px; color: var(--muted); background: rgba(7,11,26,.72); border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px;
+}
+.p3d__cam { position: absolute; right: 10px; bottom: 10px; z-index: 2; display: flex; gap: 6px; }
+.p3d__cam button {
+  width: 34px; height: 34px; border-radius: 8px; cursor: pointer;
+  font: 600 16px/1 var(--body); color: var(--fg);
+  background: rgba(7,11,26,.78); border: 1px solid var(--line);
+}
+.p3d__cam button:hover { border-color: var(--violet); }
+
+.p3d__rail { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.p3d__card { background: rgba(7,11,26,.5); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.p3d__h { margin: 0 0 10px; font: 600 11.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.p3d__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.p3d__btn {
+  font: 600 13px var(--body); color: var(--fg); cursor: pointer;
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 8px;
+}
+.p3d__btn:hover { border-color: var(--violet); }
+.p3d__btn.is-primary { background: linear-gradient(135deg, var(--violet), var(--violet-2)); border-color: transparent; color: #fff; }
+.p3d__btn[aria-pressed="true"] { background: var(--violet-soft); border-color: var(--violet); }
+.p3d__btn.is-wide { grid-column: 1 / -1; }
+.p3d__stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.p3d__stat { background: rgba(7,11,26,.5); border: 1px solid var(--line); border-radius: 8px; padding: 7px 4px; text-align: center; }
+.p3d__stat b { display: block; font: 700 17px var(--display); font-variant-numeric: tabular-nums; }
+.p3d__stat span { font-size: 10.5px; color: var(--muted); }
+.p3d__stat.is-ok b { color: #3DDC97; } .p3d__stat.is-bad b { color: #FF6B7A; } .p3d__stat.is-warn b { color: var(--code-str); }
+.p3d__info h4 { margin: 0 0 4px; font: 600 15px var(--display); }
+.p3d__info p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.p3d__log { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; max-height: 150px; overflow-y: auto; font: 400 11.5px/1.45 var(--mono); }
+.p3d__log li { color: var(--muted); padding: 3px 0; border-bottom: 1px dashed var(--line); overflow-wrap: anywhere; }
+.p3d__log li b { font-weight: 500; color: #C9C2FF; }
+.p3d__log li.ok b { color: #3DDC97; } .p3d__log li.bad b { color: #FF6B7A; } .p3d__log li.warn b { color: var(--code-str); }
+
+@media (max-width: 1040px) {
+  .p3d { grid-template-columns: 1fr; }
+  .p3d__rail { grid-template-columns: 1fr 1fr; }
+  .p3d__rail > :nth-child(n+3) { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .p3d__stage { height: 520px; }
+  .p3d__rail { grid-template-columns: 1fr; }
+}
