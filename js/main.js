@@ -1,3 +1,89 @@
+// Stacked sections: each section pins while the next slides up over it;
+// the covered one eases back (slight lift + scale) and fades to dark.
+(function () {
+  var ids = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
+  var panels = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supportsSticky = window.CSS && CSS.supports && CSS.supports('position', 'sticky');
+  if (!panels.length || reduce || !supportsSticky) return;
+
+  var state = panels.map(function () { return { cur: 0, target: 0, covered: false }; });
+  var enabled = false, raf = 0;
+
+  panels.forEach(function (p, i) { p.classList.add('stack-panel'); p.style.zIndex = String(i + 1); });
+
+  // In-flow position of a panel (getBoundingClientRect lies while panels are pinned).
+  window.stackNaturalTop = function (el) {
+    if (!enabled) return el.getBoundingClientRect().top + window.scrollY - document.getElementById('nav').offsetHeight + 1;
+    var i = panels.indexOf(el);
+    var host = panels[0].parentNode;                  // <main> is not sticky, so its offset is real
+    var y = host.getBoundingClientRect().top + window.scrollY;
+    for (var k = 0; k < i; k++) y += panels[k].offsetHeight;
+    return y;
+  };
+
+  function ease(t) { return t * t * (3 - 2 * t); } // smoothstep
+
+  function measure() {
+    var want = window.innerHeight >= 560;  // too cramped on very short screens (phones in landscape)
+    if (want !== enabled) {
+      enabled = want;
+      root.classList.toggle('stack-on', enabled);
+      if (!enabled) panels.forEach(function (p, i) {
+        p.style.top = ''; p.style.transform = ''; p.style.removeProperty('--dim');
+        state[i].cur = state[i].target = 0; report(i, false);
+      });
+    }
+    if (!enabled) return;
+    var vh = window.innerHeight;
+    // Panels taller than the screen scroll fully before pinning.
+    panels.forEach(function (p) { p.style.top = Math.min(0, vh - p.offsetHeight) + 'px'; });
+    readTargets();
+    kick();
+  }
+
+  function readTargets() {
+    var vh = window.innerHeight;
+    panels.forEach(function (p, i) {
+      var next = panels[i + 1];
+      state[i].target = next ? Math.min(1, Math.max(0, 1 - next.getBoundingClientRect().top / vh)) : 0;
+    });
+  }
+
+  function report(i, covered) {
+    if (state[i].covered === covered) return;
+    state[i].covered = covered;
+    document.dispatchEvent(new CustomEvent('panelcover', { detail: { id: panels[i].id, covered: covered } }));
+  }
+
+  function step() {
+    raf = 0;
+    if (!enabled) return;
+    readTargets();
+    var moving = false;
+    panels.forEach(function (p, i) {
+      var s = state[i];
+      s.cur += (s.target - s.cur) * 0.16;           // glide toward the scroll position
+      if (Math.abs(s.target - s.cur) < 0.0015) s.cur = s.target; else moving = true;
+      var e = ease(s.cur);
+      p.style.transform = e > 0.0005
+        ? 'translate3d(0,' + (-e * 28).toFixed(2) + 'px,0) scale(' + (1 - e * 0.05).toFixed(4) + ')'
+        : '';
+      p.style.setProperty('--dim', (e * 0.62).toFixed(3));
+      report(i, s.target > 0.985);
+    });
+    if (moving) raf = requestAnimationFrame(step);
+  }
+  function kick() { if (!raf) raf = requestAnimationFrame(step); }
+
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  if ('ResizeObserver' in window) { var ro = new ResizeObserver(measure); panels.forEach(function (p) { ro.observe(p); }); }
+  measure();
+})();
+
 // Navbar: mobile menu toggle, scrolled state, active link, in-page scrolling.
 (function () {
   var nav = document.getElementById('nav');
@@ -73,7 +159,9 @@
     if (!target) return;
     e.preventDefault();
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var top = id === 'home' ? 0 : target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + 1;
+    var top = id === 'home' ? 0
+      : window.stackNaturalTop ? window.stackNaturalTop(target)   // stacked panels: use their in-flow position
+      : target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + 1;
     window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
     if (navAnchors.some(function (n) { return n.getAttribute('href') === '#' + id; })) setActive(id);
   });
@@ -167,7 +255,9 @@ function loadScript(src) {
   }
 
   var api = null, inView = false, tabOn = true;
-  function sync() { if (api) api.setActive(inView && tabOn && !document.hidden); }
+  var covered = false;
+  document.addEventListener('panelcover', function (e) { if (e.detail.id === 'projects') { covered = e.detail.covered; sync(); } });
+  function sync() { if (api) api.setActive(inView && tabOn && !covered && !document.hidden); }
   document.addEventListener('diagramtab', function (e) { tabOn = e.detail === 'tab-3d'; sync(); });
   document.addEventListener('visibilitychange', sync);
 
@@ -283,7 +373,10 @@ function loadScript(src) {
   window.addEventListener('resize', resize);
   resize();
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (en) { setRunning(en[0].isIntersecting && !document.hidden); }).observe(hero);
+    var heroVisible = true, heroCovered = false;
+    var heroSync = function () { setRunning(heroVisible && !heroCovered && !document.hidden); };
+    new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; heroSync(); }).observe(hero);
+    document.addEventListener('panelcover', function (e) { if (e.detail.id === 'home') { heroCovered = e.detail.covered; heroSync(); } });
   } else setRunning(true);
   document.addEventListener('visibilitychange', function () { if (document.hidden) setRunning(false); });
 })();

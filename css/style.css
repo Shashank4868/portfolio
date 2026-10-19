@@ -544,3 +544,24 @@ code { font: 500 .9em var(--mono); color: #C9C2FF; }
   .p3d__stage { height: 520px; }
   .p3d__rail { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   Stacked sections (enabled by JS via .stack-on)
+   ========================================================= */
+:where(.stack-panel) { background-color: var(--bg); }
+.stack-on .stack-panel {
+  position: sticky;              /* top is set per panel by JS */
+  transform-origin: 50% 0%;
+  will-change: transform;
+  isolation: isolate;
+  border-top: 0;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -26px 50px -26px rgba(0,0,0,.75), 0 -1px 0 rgba(122,108,255,.18);
+}
+.stack-on .stack-panel:first-child { border-radius: 0; box-shadow: none; }
+.stack-on .stack-panel::after {
+  content: ""; position: absolute; inset: 0; z-index: 20; pointer-events: none;
+  border-radius: inherit; background: #04060f; opacity: var(--dim, 0);
+}
+.stack-on .footer .footer__bottom { padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 760px) { .stack-on .stack-panel { border-radius: 20px 20px 0 0; } }
