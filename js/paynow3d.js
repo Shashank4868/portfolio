@@ -16,7 +16,7 @@
     stage.insertBefore(renderer.domElement, labelsEl);
 
     var scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x070B1A, 26, 48);
+    scene.fog = new THREE.Fog(0x0B0C0F, 26, 48);
     var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
     camera.position.set(-0.6, 14, 19);
 
@@ -30,17 +30,17 @@
     controls.minDistance = 9;
     controls.maxDistance = 34;
     controls.maxPolarAngle = Math.PI * 0.46;
-    controls.autoRotate = !reduceMotion;
+    controls.autoRotate = false;          // the packets are the motion; the camera stays put
     controls.autoRotateSpeed = 0.35;
     controls.addEventListener('start', function () { controls.autoRotate = false; });
     if (coarse) renderer.domElement.style.touchAction = 'pan-y';
     hintEl.textContent = coarse ? 'Tap a service' : 'Drag to rotate · click a service';
 
-    scene.add(new THREE.HemisphereLight(0xb9b2ff, 0x0b1124, 0.75));
+    scene.add(new THREE.HemisphereLight(0xdfe3ea, 0x0e0f12, 0.7));
     var key = new THREE.DirectionalLight(0xffffff, 0.8); key.position.set(6, 14, 8); scene.add(key);
-    var rim = new THREE.PointLight(0x7a6cff, 1.1, 40); rim.position.set(-4, 6, -8); scene.add(rim);
+    var rim = new THREE.PointLight(0x9aa1ad, 0.6, 40); rim.position.set(-4, 6, -8); scene.add(rim);
 
-    var grid = new THREE.GridHelper(40, 40, 0x2a3566, 0x161f3d);
+    var grid = new THREE.GridHelper(40, 40, 0x2a2e35, 0x1a1d22);
     grid.material.transparent = true; grid.material.opacity = 0.55;
     scene.add(grid);
 
@@ -58,13 +58,13 @@
     };
 
     var NODE_DEF = {
-      client:       { p: [-9.6, -0.2], s: [1.9, 0.9, 1.4], c: 0x8b93b8 },
-      keycloak:     { p: [-5.6, -4.4], s: [2.4, 1.0, 1.6], c: 0x3ddc97 },
-      gateway:      { p: [-5.6,  0.0], s: [2.4, 1.3, 1.7], c: 0x7a6cff },
-      profile:      { p: [-5.6,  4.4], s: [2.4, 1.0, 1.6], c: 0x6f7aa6 },
-      payment:      { p: [-1.2,  0.0], s: [2.6, 1.5, 1.9], c: 0x7a6cff },
-      fraud:        { p: [ 6.6, -2.8], s: [2.6, 1.3, 1.7], c: 0xf3a86b },
-      notification: { p: [ 6.6,  3.0], s: [2.6, 1.1, 1.7], c: 0x7fd3c5 }
+      client:       { p: [-9.6, -0.2], s: [1.9, 0.9, 1.4], c: 0x8a919c },
+      keycloak:     { p: [-5.6, -4.4], s: [2.4, 1.0, 1.6], c: 0x8a919c },
+      gateway:      { p: [-5.6,  0.0], s: [2.4, 1.3, 1.7], c: 0x8a919c },
+      profile:      { p: [-5.6,  4.4], s: [2.4, 1.0, 1.6], c: 0x8a919c },
+      payment:      { p: [-1.2,  0.0], s: [2.6, 1.5, 1.9], c: 0x8a919c },
+      fraud:        { p: [ 6.6, -2.8], s: [2.6, 1.3, 1.7], c: 0x8a919c },
+      notification: { p: [ 6.6,  3.0], s: [2.6, 1.1, 1.7], c: 0x8a919c }
     };
 
     var pickables = [];
@@ -85,7 +85,7 @@
       var d = NODE_DEF[id];
       var geo = new THREE.BoxGeometry(d.s[0], d.s[1], d.s[2]);
       var mat = new THREE.MeshStandardMaterial({
-        color: 0x10172f, emissive: d.c, emissiveIntensity: 0.16, roughness: 0.45, metalness: 0.2,
+        color: 0x14161a, emissive: d.c, emissiveIntensity: 0.1, roughness: 0.45, metalness: 0.2,
         transparent: id === 'client', opacity: id === 'client' ? 0.55 : 1
       });
       var mesh = new THREE.Mesh(geo, mat);
@@ -100,11 +100,11 @@
 
     (function () { // PostgreSQL
       var geo = new THREE.CylinderGeometry(0.95, 0.95, 1.3, 40);
-      var mat = new THREE.MeshStandardMaterial({ color: 0x10172f, emissive: 0x4f8cc9, emissiveIntensity: 0.18, roughness: 0.4, metalness: 0.25 });
+      var mat = new THREE.MeshStandardMaterial({ color: 0x14161a, emissive: 0x8a919c, emissiveIntensity: 0.1, roughness: 0.4, metalness: 0.25 });
       var mesh = new THREE.Mesh(geo, mat);
       mesh.position.set(-1.2, 0.65, 4.4);
       mesh.userData.id = 'postgres';
-      mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 30), new THREE.LineBasicMaterial({ color: 0x4f8cc9 })));
+      mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 30), new THREE.LineBasicMaterial({ color: 0x8a919c })));
       scene.add(mesh); pickables.push(mesh);
       nodes.postgres = { mesh: mesh, mat: mat, anchor: new THREE.Vector3(-1.2, 0.8, 4.4), flash: 0, baseY: 0.65 };
       addLabel('postgres', 'PostgreSQL', new THREE.Vector3(-1.2, 1.65, 4.4));
@@ -116,22 +116,22 @@
     (function () { // Kafka
       var len = 9.4;
       var geo = new THREE.CylinderGeometry(0.62, 0.62, len, 40, 1, true);
-      var mat = new THREE.MeshStandardMaterial({ color: 0x5b4be8, emissive: 0x5b4be8, emissiveIntensity: 0.35, transparent: true, opacity: 0.22, side: THREE.DoubleSide, depthWrite: false });
+      var mat = new THREE.MeshStandardMaterial({ color: 0x9aa1ad, emissive: 0x9aa1ad, emissiveIntensity: 0.15, transparent: true, opacity: 0.12, side: THREE.DoubleSide, depthWrite: false });
       var tube = new THREE.Mesh(geo, mat);
       tube.rotation.x = Math.PI / 2;
       tube.position.set(KX, KY, 0.1);
       tube.userData.id = 'kafka';
       scene.add(tube); pickables.push(tube);
-      var core = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, len, 8), new THREE.MeshBasicMaterial({ color: 0x9b8cff, transparent: true, opacity: 0.5 }));
+      var core = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, len, 8), new THREE.MeshBasicMaterial({ color: 0x6e7480, transparent: true, opacity: 0.6 }));
       core.rotation.x = Math.PI / 2; core.position.copy(tube.position); scene.add(core);
       [-3.8, 3.9].forEach(function (z) {
-        var leg = new THREE.Mesh(new THREE.BoxGeometry(0.12, KY - 0.4, 0.12), new THREE.MeshStandardMaterial({ color: 0x2a3566 }));
+        var leg = new THREE.Mesh(new THREE.BoxGeometry(0.12, KY - 0.4, 0.12), new THREE.MeshStandardMaterial({ color: 0x2a2e35 }));
         leg.position.set(KX, (KY - 0.4) / 2, z); scene.add(leg);
       });
       nodes.kafka = { mesh: tube, mat: mat, anchor: new THREE.Vector3(KX, KY, 0), flash: 0, isKafka: true };
       addLabel('kafka', 'Apache Kafka', new THREE.Vector3(KX, KY + 1.15, -5.0));
       Object.keys(TOPICS).forEach(function (t) {
-        var ring = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.07, 10, 48), new THREE.MeshBasicMaterial({ color: 0x9b8cff }));
+        var ring = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.05, 10, 48), new THREE.MeshBasicMaterial({ color: 0xc9cdd4 }));
         ring.position.set(KX, KY, TOPICS[t]);
         scene.add(ring);
         nodes[t] = { mesh: ring, mat: ring.material, anchor: new THREE.Vector3(KX, KY, TOPICS[t]), flash: 0, isTopic: true };
@@ -154,8 +154,8 @@
       curves[edgeKey(b, a)] = { curve: curve, rev: true, len: len };
       var g = new THREE.BufferGeometry().setFromPoints(curve.getPoints(48));
       var m = opts.dashed
-        ? new THREE.LineDashedMaterial({ color: 0x3ddc97, dashSize: 0.25, gapSize: 0.18, transparent: true, opacity: 0.7 })
-        : new THREE.LineBasicMaterial({ color: 0x6b76b8, transparent: true, opacity: 0.9 });
+        ? new THREE.LineDashedMaterial({ color: 0x6e7480, dashSize: 0.25, gapSize: 0.18, transparent: true, opacity: 0.7 })
+        : new THREE.LineBasicMaterial({ color: 0x4a505a, transparent: true, opacity: 0.95 });
       var line = new THREE.Line(g, m);
       if (opts.dashed) line.computeLineDistances();
       scene.add(line);
@@ -174,7 +174,7 @@
     addEdge('t_notif', 'notification');
 
     /* ---------- Packets ---------- */
-    var COLORS = { req: 0x9b8cff, ok: 0x3ddc97, bad: 0xff6b7a, warn: 0xf3a86b };
+    var COLORS = { req: 0xe8eaee, ok: 0x5dbf8a, bad: 0xe5675f, warn: 0xf2b246 };
     var packets = [];
     var SPEED = reduceMotion ? 4.2 : 6.5;
     var sphereGeo = new THREE.SphereGeometry(0.2, 16, 12);
@@ -183,7 +183,7 @@
     function makePacket(steps, colorKey) {
       var group = new THREE.Group();
       var core = new THREE.Mesh(sphereGeo, new THREE.MeshBasicMaterial({ color: COLORS[colorKey] }));
-      var glow = new THREE.Mesh(glowGeo, new THREE.MeshBasicMaterial({ color: COLORS[colorKey], transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false }));
+      var glow = new THREE.Mesh(glowGeo, new THREE.MeshBasicMaterial({ color: COLORS[colorKey], transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false }));
       group.add(core); group.add(glow);
       scene.add(group);
       group.position.copy(nodes[steps[0].from || steps[0].at].anchor);
@@ -418,13 +418,12 @@
         if (n.isTopic) {
           var s = 1 + n.flash * 0.35; n.mesh.scale.set(s, s, s);
         } else if (n.isKafka) {
-          n.mat.opacity = 0.22 + n.flash * 0.2 + on * 0.4;
+          n.mat.opacity = 0.12 + n.flash * 0.12 + on * 0.25;
         } else {
-          n.mat.emissiveIntensity = 0.16 + n.flash * 0.7 + on;
-          n.mesh.position.y = n.baseY + n.flash * 0.12 + (reduceMotion ? 0 : Math.sin(time * 1.4 + n.anchor.x) * 0.03);
+          n.mat.emissiveIntensity = 0.1 + n.flash * 0.55 + on * 0.6;
+          n.mesh.position.y = n.baseY + n.flash * 0.12;
         }
       });
-      packets.forEach(function (pk) { var s = 1 + Math.sin(time * 10) * 0.12; pk.glow.scale.set(s, s, s); });
 
       renderer.render(scene, camera);
 

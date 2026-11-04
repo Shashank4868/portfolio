@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Shashank Raj</title>
   <meta name="claude:viewport-fit-sides" content="cover">
-  <meta name="description" content="Shashank Raj, Java Backend Engineer at Deloitte USI. Spring Boot microservices, GraphQL/REST APIs and event-driven systems with Apache Kafka.">
+  <meta name="description" content="Shashank Raj, Java backend engineer at Deloitte USI. Spring Boot microservices, GraphQL/REST APIs and event-driven systems with Apache Kafka.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,10 +16,7 @@
   <!-- ===== Navbar ===== -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a class="logo" href="#home" aria-label="Shashank Raj, home">
-        <span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>
-        <span class="logo__text">shashank<span>.dev</span></span>
-      </a>
+      <a class="logo" href="#home" aria-label="Shashank Raj, home">Shashank Raj</a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="#home" class="is-active">Home</a>
@@ -28,13 +25,13 @@
         <a href="#projects">Project</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="#contact" class="btn btn--primary btn--sm nav__cta-mobile">Hire Me <span aria-hidden="true">↗</span></a>
+        <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--primary btn--sm nav__cta-mobile" download>Download CV</a>
       </nav>
 
-      <a href="#contact" class="btn btn--primary btn--sm nav__cta">Hire Me <span aria-hidden="true">↗</span></a>
+      <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--secondary btn--sm nav__cta" download>Download CV</a>
 
       <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
+        <span></span><span></span>
       </button>
     </div>
   </header>
@@ -42,70 +39,51 @@
   <main>
     <!-- ===== Hero ===== -->
     <section class="hero" id="home">
-      <canvas class="hero__net" id="heroNet" aria-hidden="true"></canvas>
       <div class="container hero__grid">
 
         <div class="hero__copy">
-          <span class="pill">Java Backend Engineer</span>
-          <h1 class="hero__title">
-            Hi, I'm <span class="accent">Shashank</span>
-            <span class="hero__sub">I build backends that hold up in production.</span>
-          </h1>
+          <p class="endpoint"><span>GET</span> /</p>
+          <h1 class="hero__title">Shashank Raj</h1>
+          <p class="hero__role">Java backend engineer building Spring Boot microservices and APIs for financial services</p>
           <p class="hero__lede">
-            I build Spring Boot microservices, GraphQL/REST APIs and event-driven systems with Apache Kafka.
-            At Deloitte USI I work for a global asset-management client in a regulated financial environment.
+            Two years at Deloitte USI on a global asset-management client in a regulated financial environment:
+            GraphQL/REST APIs, production support, SQL performance tuning and event-driven systems with Apache Kafka.
           </p>
 
           <div class="hero__actions">
-            <a href="#projects" class="btn btn--primary">View My Work <span aria-hidden="true">↗</span></a>
-            <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--ghost" download>
+            <a href="#projects" class="btn btn--primary">See the payment system</a>
+            <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--secondary" download>
               Download CV
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14" /></svg>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
             </a>
           </div>
 
-          <p class="eyebrow">Technologies I work with</p>
-          <ul class="tech-row" aria-label="Technologies">
-            <li class="chip" style="--c:#E76F00" title="Java">Jv</li>
-            <li class="chip" style="--c:#6DB33F" title="Spring Boot">Sb</li>
-            <li class="chip" style="--c:#E5E7EB" title="Apache Kafka">Kf</li>
-            <li class="chip" style="--c:#4F8CC9" title="PostgreSQL">Pg</li>
-            <li class="chip" style="--c:#E535AB" title="GraphQL">Gq</li>
-            <li class="chip" style="--c:#2496ED" title="Docker Compose">Dc</li>
-            <li class="chip" style="--c:#F05032" title="Git">Gt</li>
-          </ul>
+          <ul class="hero__stack" aria-label="Works with"><li>Java</li><li>Spring Boot</li><li>Apache Kafka</li><li>PostgreSQL</li><li>GraphQL</li><li>Docker Compose</li><li>Git</li></ul>
         </div>
 
-        <div class="hero__visual" id="heroVisual" aria-hidden="true">
-          <div class="hero__dots" data-depth="1.4"></div>
-          <div class="hero__orb" data-depth="0.4"></div>
-
-          <!-- Cut-out photo: head rises above the circle, shoulders are clipped to it. -->
-          <div class="hero__figure" data-depth="0.8">
-            <img class="hero__photo" src="assets/profile.png" alt="" width="760" height="862">
+        <figure class="hero__visual">
+          <div class="portrait">
+            <img src="assets/profile.png" alt="Shashank Raj" width="760" height="862">
           </div>
 
-          <svg class="hero__doodle" viewBox="0 0 80 90" data-depth="1.6">
-            <path d="M60 6c-26 6-44 26-38 44 5 14 22 12 20 0-2-11-20-9-24 6-4 13 4 24 14 30" />
-            <path d="M24 80l8 7 2-10" />
-          </svg>
-
-          <figure class="code-card" data-depth="1.8">
-            <figcaption><span class="code-card__tag">&lt;/&gt;</span> Engineer.java <i></i></figcaption>
-<pre><code><span class="k">record</span> <span class="t">Engineer</span>(
-  <span class="t">String</span> name,
-  <span class="t">List</span>&lt;<span class="t">String</span>&gt; stack,
-  <span class="t">String</span> focus
-) {}
-
-<span class="k">var</span> me = <span class="k">new</span> <span class="t">Engineer</span>(
-  <span class="s">"Shashank"</span>,
-  <span class="t">List</span>.of(<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>,
-          <span class="s">"Kafka"</span>, <span class="s">"PostgreSQL"</span>),
-  <span class="s">"reliable backends"</span>
-);</code></pre>
-          </figure>
-        </div>
+          <!-- The moment: a real result from the resume, set as a production trace -->
+          <div class="trace" aria-label="Production API response time after query tuning: about 5,000 milliseconds before, 300 to 600 milliseconds after">
+            <div class="trace__head">
+              <span>Production API response time</span>
+            </div>
+            <div class="trace__row">
+              <span class="trace__k">before</span>
+              <span class="trace__bar"><i style="--w:100%"></i></span>
+              <span class="trace__v">~5,000 ms</span>
+            </div>
+            <div class="trace__row is-after">
+              <span class="trace__k">after</span>
+              <span class="trace__bar"><i style="--w:12%"></i></span>
+              <span class="trace__v">300–600 ms</span>
+            </div>
+            <div class="trace__foot">~90% faster · targeted indexing and query rewrites</div>
+          </div>
+        </figure>
 
       </div>
     </section>
@@ -114,40 +92,28 @@
     <section class="section about" id="about">
       <div class="container about__grid">
         <div class="about__copy">
-          <span class="pill">About me</span>
-          <h2 class="section__title">I'm passionate about building backend systems that stay fast</h2>
+          <p class="endpoint"><span>GET</span> /about</p>
+          <h2 class="section__title">Backend systems for a regulated financial environment</h2>
           <p>
-            I'm a Java Backend Engineer with 2 years at Deloitte USI, building Spring Boot microservices and
-            GraphQL/REST APIs for a global asset-management client in a regulated financial environment.
-            My work covers production support, SQL performance tuning and event-driven systems with Apache Kafka.
+            I'm a Java backend engineer with 2 years at Deloitte USI, building Spring Boot microservices and
+            GraphQL/REST APIs for a global asset-management client. My work covers production support,
+            SQL performance tuning and event-driven systems with Apache Kafka.
           </p>
           <p>
             I keep my fundamentals sharp too: 650+ LeetCode problems solved and a 9.11 CGPA.
           </p>
-          <a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener" class="btn btn--ghost">
-            Learn More About Me
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener" class="text-link">
+            LinkedIn profile
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
           </a>
         </div>
 
-        <ul class="stats" aria-label="Highlights">
-          <li class="stat">
-            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
-            <span><strong class="stat__num">2</strong><span class="stat__label">Years at Deloitte USI</span></span>
-          </li>
-          <li class="stat">
-            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
-            <span><strong class="stat__num">650+</strong><span class="stat__label">LeetCode Problems</span></span>
-          </li>
-          <li class="stat">
-            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3"/></svg></span>
-            <span><strong class="stat__num">3</strong><span class="stat__label">Applause Awards</span></span>
-          </li>
-          <li class="stat">
-            <span class="stat__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></span>
-            <span><strong class="stat__num">9.11</strong><span class="stat__label">CGPA, B.Tech IT</span></span>
-          </li>
-        </ul>
+        <dl class="stats">
+          <div class="stat"><dt>Years at Deloitte USI</dt><dd>2</dd></div>
+          <div class="stat"><dt>LeetCode problems solved</dt><dd>650+</dd></div>
+          <div class="stat"><dt>Applause Awards at Deloitte</dt><dd>3</dd></div>
+          <div class="stat"><dt>CGPA, B.Tech IT</dt><dd>9.11</dd></div>
+        </dl>
       </div>
     </section>
 
@@ -155,16 +121,14 @@
     <section class="section experience" id="experience">
       <div class="container">
         <header class="section__head">
-          <span class="eyebrow eyebrow--accent">Work experience</span>
-          <h2 class="section__title">Where I've Worked</h2>
+          <p class="endpoint"><span>GET</span> /experience</p>
+          <h2 class="section__title">Experience</h2>
         </header>
 
         <ol class="timeline">
           <li class="job">
-            <div class="job__meta">
-              <span class="job__dates">Oct 2024 – Present</span>
-            </div>
-            <div class="job__card" data-tilt>
+            <p class="job__dates">Oct 2024 – Present</p>
+            <div class="job__body">
               <h3>Software Engineer I</h3>
               <p class="job__org">Deloitte USI</p>
               <ul class="points">
@@ -176,10 +140,8 @@
             </div>
           </li>
           <li class="job">
-            <div class="job__meta">
-              <span class="job__dates">May 2023 – Jul 2023</span>
-            </div>
-            <div class="job__card" data-tilt>
+            <p class="job__dates">May 2023 – Jul 2023</p>
+            <div class="job__body">
               <h3>Product &amp; Engineering Intern</h3>
               <p class="job__org">HighRadius</p>
               <ul class="points">
@@ -191,19 +153,19 @@
         </ol>
 
         <div class="edu-ach">
-          <div class="mini-card" data-tilt>
-            <h3 class="mini-card__title">Education</h3>
+          <div class="panel">
+            <h3 class="panel__title">Education</h3>
             <div class="edu">
-              <div class="edu__row"><strong>B.Tech in Information Technology</strong><span class="job__dates">2020 – 2024</span></div>
+              <div class="edu__row"><span class="edu__name">B.Tech in Information Technology</span><span class="job__dates">2020 – 2024</span></div>
               <p>KIIT, Bhubaneswar · CGPA: 9.11 / 10</p>
             </div>
             <div class="edu">
-              <div class="edu__row"><strong>Intermediate (Science)</strong><span class="job__dates">2020</span></div>
-              <p>St. Xavier's Intermediate College, Ranchi · 88.6% | 9th State Rank</p>
+              <div class="edu__row"><span class="edu__name">Intermediate (Science)</span><span class="job__dates">2020</span></div>
+              <p>St. Xavier's Intermediate College, Ranchi · 88.6% · 9th State Rank</p>
             </div>
           </div>
-          <div class="mini-card" data-tilt>
-            <h3 class="mini-card__title">Achievements &amp; leadership</h3>
+          <div class="panel">
+            <h3 class="panel__title">Achievements and leadership</h3>
             <ul class="points">
               <li>Received 3 Applause Awards at Deloitte for rapid project onboarding, resolving critical production incidents with minimal guidance, and delivering API performance optimizations.</li>
               <li>Solved 650+ LeetCode problems, including 125 in Dynamic Programming; earned the 500 Days badge.</li>
@@ -217,79 +179,77 @@
     <!-- ===== Featured project ===== -->
     <section class="section feature" id="projects">
       <div class="container">
-        <header class="section__head">
-          <span class="eyebrow eyebrow--accent">Featured project</span>
-          <h2 class="section__title">Distributed Payment Processing System</h2>
+        <header class="section__head feature__head">
+          <div>
+            <p class="endpoint"><span>GET</span> /projects/paynow</p>
+            <h2 class="section__title">Distributed Payment Processing System</h2>
+            <p class="feature__intro">
+              An event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection,
+              notification, user-profile/auth) communicating asynchronously over Kafka.
+            </p>
+          </div>
+          <div class="feature__actions">
+            <a class="btn btn--primary" href="https://github.com/Shashank4868/Paynow" target="_blank" rel="noopener">
+              View code on GitHub
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <span class="meta">Personal project</span>
+          </div>
         </header>
 
-        <div class="feature__intro">
-          <p>
-            An event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection,
-            notification, user-profile/auth) communicating asynchronously over Kafka.
-          </p>
-          <div class="feature__actions">
-            <span class="tag-muted">Personal Project</span>
-            <a class="btn btn--primary btn--sm" href="https://github.com/Shashank4868/Paynow" target="_blank" rel="noopener">
-              View code on GitHub <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <ul class="stack" aria-label="Tech stack">
-          <li>Java 17</li><li>Spring Boot 4.1</li><li>Spring Cloud Gateway</li><li>Spring Security</li><li>Keycloak</li><li>Apache Kafka</li><li>PostgreSQL</li><li>Liquibase</li><li>Docker Compose</li>
-        </ul>
+        <ul class="stack-line" aria-label="Tech stack"><li>Java 17</li><li>Spring Boot 4.1</li><li>Spring Cloud Gateway</li><li>Spring Security</li><li>Keycloak</li><li>Apache Kafka</li><li>PostgreSQL</li><li>Liquibase</li><li>Docker Compose</li></ul>
 
         <!-- Diagram tabs -->
         <div class="diagram-panel">
           <div class="tabs" role="tablist" aria-label="Diagrams">
-            <button class="tab is-active" role="tab" id="tab-3d" aria-selected="true" aria-controls="panel-3d" type="button">Live 3D <span class="tab__badge">new</span></button>
+            <button class="tab is-active" role="tab" id="tab-3d" aria-selected="true" aria-controls="panel-3d" type="button">Live 3D</button>
             <button class="tab" role="tab" id="tab-arch" aria-selected="false" aria-controls="panel-arch" tabindex="-1" type="button">Architecture</button>
-            <button class="tab" role="tab" id="tab-seq" aria-selected="false" aria-controls="panel-seq" tabindex="-1" type="button">Auth &amp; payment flow</button>
+            <button class="tab" role="tab" id="tab-seq" aria-selected="false" aria-controls="panel-seq" tabindex="-1" type="button">Auth and payment flow</button>
           </div>
 
-          <!-- Live 3D simulation (three.js is loaded only when this section is near the viewport) -->
+          <!-- Live 3D simulation (three.js loads only when this section is near the viewport) -->
           <div class="tabpanel" role="tabpanel" id="panel-3d" aria-labelledby="tab-3d">
             <div class="p3d" id="p3d">
               <div class="p3d__stage">
                 <div class="p3d__labels" aria-hidden="true"></div>
-                <div class="p3d__loading">Loading 3D view…</div>
+                <div class="p3d__loading">Loading 3D view</div>
                 <div class="p3d__hint">Drag to rotate · click a service</div>
                 <div class="p3d__cam" aria-label="Camera">
-                  <button type="button" data-act="rl" aria-label="Rotate left">⟲</button>
-                  <button type="button" data-act="zin" aria-label="Zoom in">+</button>
-                  <button type="button" data-act="zout" aria-label="Zoom out">−</button>
-                  <button type="button" data-act="rr" aria-label="Rotate right">⟳</button>
+                  <button type="button" data-act="rl" aria-label="Rotate left"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4.3h4.3"/></svg></button>
+                  <button type="button" data-act="zin" aria-label="Zoom in"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+                  <button type="button" data-act="zout" aria-label="Zoom out"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+                  <button type="button" data-act="rr" aria-label="Rotate right"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4.3h-4.3"/></svg></button>
                 </div>
               </div>
 
               <aside class="p3d__rail">
-                <div class="p3d__card">
+                <div class="p3d__group">
                   <h4 class="p3d__h">Send traffic</h4>
                   <div class="p3d__btns">
-                    <button class="p3d__btn is-primary" type="button" data-act="pay">Send payment</button>
-                    <button class="p3d__btn" type="button" data-act="login">Log in</button>
-                    <button class="p3d__btn" type="button" data-act="bad">Invalid token</button>
-                    <button class="p3d__btn" type="button" data-act="dup">Retry same key</button>
-                    <button class="p3d__btn is-wide" type="button" data-act="auto" aria-pressed="true">Auto traffic: on</button>
+                    <button class="btn btn--primary btn--sm" type="button" data-act="pay">Send payment</button>
+                    <button class="btn btn--secondary btn--sm" type="button" data-act="login">Log in</button>
+                    <button class="btn btn--secondary btn--sm" type="button" data-act="bad">Invalid token</button>
+                    <button class="btn btn--secondary btn--sm" type="button" data-act="dup">Retry same key</button>
+                    <button class="btn btn--secondary btn--sm p3d__auto" type="button" data-act="auto" aria-pressed="true">Auto traffic: on</button>
                   </div>
                 </div>
-                <div class="p3d__stats">
-                  <div class="p3d__stat"><b data-stat="sent">0</b><span>sent</span></div>
-                  <div class="p3d__stat is-ok"><b data-stat="ok">0</b><span>approved</span></div>
-                  <div class="p3d__stat is-bad"><b data-stat="flag">0</b><span>flagged</span></div>
-                  <div class="p3d__stat is-warn"><b data-stat="rej">0</b><span>401 / 409</span></div>
-                </div>
-                <div class="p3d__card p3d__info" aria-live="polite">
+                <dl class="p3d__stats">
+                  <div><dt>Sent</dt><dd data-stat="sent">0</dd></div>
+                  <div><dt><i class="dot dot--ok"></i>Approved</dt><dd data-stat="ok">0</dd></div>
+                  <div><dt><i class="dot dot--bad"></i>Flagged</dt><dd data-stat="flag">0</dd></div>
+                  <div><dt><i class="dot dot--warn"></i>401 / 409</dt><dd data-stat="rej">0</dd></div>
+                </dl>
+                <div class="p3d__group p3d__info" aria-live="polite">
                   <h4>Click a service</h4>
                   <p>Select any block in the scene to see what it does.</p>
                 </div>
-                <div class="p3d__card">
+                <div class="p3d__group">
                   <h4 class="p3d__h">Event log</h4>
                   <ol class="p3d__log"></ol>
                 </div>
               </aside>
             </div>
-            <p class="diagram-note">A browser simulation of the real request flow: packets glow green when approved, red when flagged or rejected, orange on a duplicate retry.</p>
+            <p class="diagram-note">A browser simulation of the real request flow. Packets turn green when approved, red when flagged or rejected, amber on a duplicate retry.</p>
           </div>
 
           <div class="tabpanel" role="tabpanel" id="panel-arch" aria-labelledby="tab-arch" hidden>
@@ -300,77 +260,49 @@
                   <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="a-head"/></marker>
                 </defs>
 
-                <!-- Kafka cluster -->
                 <g class="a-kafka">
                   <rect x="600" y="40" width="160" height="400" rx="12"/>
                   <text x="680" y="68" class="a-kafka__name">Apache Kafka</text>
                 </g>
-                <g class="a-topic"><rect x="614" y="90" width="132" height="40" rx="7"/><text x="680" y="115">payment.created</text></g>
-                <g class="a-topic"><rect x="614" y="200" width="132" height="40" rx="7"/><text x="680" y="225">payment.decision</text></g>
-                <g class="a-topic"><rect x="614" y="330" width="132" height="40" rx="7"/><text x="680" y="355">notification</text></g>
+                <g class="a-topic"><rect x="614" y="90" width="132" height="40" rx="8"/><text x="680" y="115">payment.created</text></g>
+                <g class="a-topic"><rect x="614" y="200" width="132" height="40" rx="8"/><text x="680" y="225">payment.decision</text></g>
+                <g class="a-topic"><rect x="614" y="330" width="132" height="40" rx="8"/><text x="680" y="355">notification</text></g>
 
-                <!-- Client -->
                 <g class="a-node a-client"><rect x="20" y="170" width="110" height="60" rx="10"/><text x="75" y="197">Client</text><text class="a-sub" x="75" y="214">web / mobile</text></g>
-
-                <!-- Keycloak -->
-                <g class="a-node a-idp"><rect x="170" y="20" width="160" height="64" rx="10"/><text x="250" y="47">Keycloak</text><text class="a-sub" x="250" y="65">OAuth2 / OIDC · JWT</text></g>
-
-                <!-- Gateway -->
+                <g class="a-node"><rect x="170" y="20" width="160" height="64" rx="10"/><text x="250" y="47">Keycloak</text><text class="a-sub" x="250" y="65">OAuth2 / OIDC · JWT</text></g>
                 <g class="a-node a-hl"><rect x="170" y="160" width="160" height="80" rx="10"/><text x="250" y="190">API Gateway</text><text class="a-sub" x="250" y="208">Spring Cloud Gateway</text><text class="a-sub" x="250" y="224">JWT resource server</text></g>
-
-                <!-- User profile / auth -->
                 <g class="a-node"><rect x="170" y="330" width="160" height="64" rx="10"/><text x="250" y="358">User profile / auth</text><text class="a-sub" x="250" y="376">service</text></g>
-
-                <!-- Payment -->
                 <g class="a-node a-hl"><rect x="380" y="150" width="170" height="100" rx="10"/><text x="465" y="180">Payment</text><text class="a-sub" x="465" y="198">idempotency keys</text><text class="a-sub" x="465" y="214">status transitions</text><text class="a-sub" x="465" y="230">REST API</text></g>
-
-                <!-- PostgreSQL -->
                 <g class="a-db">
                   <path d="M395 330v60c0 9 31 16 70 16s70-7 70-16v-60"/>
                   <ellipse cx="465" cy="330" rx="70" ry="14"/>
                   <text x="465" y="366">PostgreSQL</text><text class="a-sub" x="465" y="384">Liquibase schema</text>
                 </g>
-
-                <!-- Fraud -->
                 <g class="a-node"><rect x="840" y="80" width="160" height="90" rx="10"/><text x="920" y="112">Fraud detection</text><text class="a-sub" x="920" y="130">evaluates rules</text><text class="a-sub" x="920" y="146">approve / flag</text></g>
-
-                <!-- Notification -->
                 <g class="a-node"><rect x="840" y="380" width="160" height="70" rx="10"/><text x="920" y="410">Notification</text><text class="a-sub" x="920" y="428">sends email (SMTP)</text></g>
 
-                <!-- Edges -->
                 <path class="a-edge" d="M75 170V52H168" marker-end="url(#ah)"/>
                 <text class="a-label" x="84" y="104" text-anchor="start">1 · log in</text>
                 <text class="a-label" x="84" y="118" text-anchor="start">→ JWT</text>
-
                 <path class="a-edge" d="M130 200H168" marker-end="url(#ah)"/>
                 <text class="a-label" x="75" y="252">2 · Bearer JWT</text>
-
                 <path class="a-edge a-dashed" d="M250 160V86" marker-end="url(#ah)"/>
                 <text class="a-label" x="258" y="126" text-anchor="start">JWKS keys</text>
-
                 <path class="a-edge" d="M330 200H378" marker-end="url(#ah)"/>
                 <text class="a-label" x="354" y="190" text-anchor="middle">3</text>
-
                 <path class="a-edge" d="M250 240V328" marker-end="url(#ah)"/>
-
                 <path class="a-edge" d="M465 250V314" marker-end="url(#ah)"/>
                 <text class="a-label" x="472" y="290" text-anchor="start">save PENDING</text>
-
                 <path class="a-edge" d="M550 170H576V110H612" marker-end="url(#ah)"/>
                 <text class="a-label" x="582" y="100" text-anchor="end">4 · publish</text>
-
                 <path class="a-edge" d="M746 110H838" marker-end="url(#ah)"/>
                 <text class="a-label" x="792" y="102" text-anchor="middle">5 · consume</text>
-
                 <path class="a-edge" d="M870 170V220H748" marker-end="url(#ah)"/>
                 <text class="a-label" x="808" y="212" text-anchor="middle">6 · decision</text>
-
                 <path class="a-edge a-dashed" d="M614 220H582V230H552" marker-end="url(#ah)"/>
                 <text class="a-label" x="582" y="270">7 · update status</text>
-
                 <path class="a-edge" d="M900 170V350H748" marker-end="url(#ah)"/>
                 <text class="a-label" x="824" y="342" text-anchor="middle">email event</text>
-
                 <path class="a-edge" d="M680 370V415H838" marker-end="url(#ah)"/>
                 <text class="a-label" x="760" y="407" text-anchor="middle">8 · consume</text>
               </svg>
@@ -382,44 +314,39 @@
             <div class="scroll-x scroll-x--seq">
               <img class="seq-img" src="assets/paynow-sequence.png" alt="Sequence diagram: registration and login through Keycloak, then a payment request through the API gateway, token validation with a 401 path for invalid tokens, idempotency check, saving the payment as pending, publishing the payment-created event, fraud evaluation, decision and status update, and the email notification." width="2800" height="1965" loading="lazy">
             </div>
-            <p class="diagram-note">Scroll sideways to follow the flow. <a href="assets/paynow-sequence.png" target="_blank" rel="noopener">Open full size ↗</a></p>
+            <p class="diagram-note">Scroll sideways to follow the flow. <a href="assets/paynow-sequence.png" target="_blank" rel="noopener">Open full size</a></p>
           </div>
         </div>
 
         <!-- Resume bullets, word for word -->
         <div class="highlights">
-          <article class="hl" data-tilt>
-            <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+          <article class="hl">
             <h3>Event-driven microservices</h3>
             <p>Built an event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection, notification, user-profile/auth) communicating asynchronously over Kafka.</p>
           </article>
-          <article class="hl" data-tilt>
-            <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span>
+          <article class="hl">
             <h3>OAuth2 / OIDC security</h3>
             <p>Secured the gateway and services with OAuth2/OIDC via Keycloak, validating JWT bearer tokens as Spring Security resource servers and deriving sender identity from token claims instead of request payloads.</p>
           </article>
-          <article class="hl" data-tilt>
-            <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></span>
+          <article class="hl">
             <h3>Idempotent payments</h3>
             <p>Implemented idempotent payment creation with idempotency keys backed by a database uniqueness constraint, plus status-transition rules and Liquibase-managed PostgreSQL schemas.</p>
           </article>
-          <article class="hl" data-tilt>
-            <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <article class="hl">
             <h3>Kafka fraud pipeline</h3>
             <p>Designed a Kafka pipeline where a fraud-detection service evaluates payment events and publishes approve/flag decisions that update payment status and trigger email notifications.</p>
           </article>
         </div>
 
-        <!-- Auth + payment request flow, from the sequence diagram -->
         <div class="flow">
           <h3 class="flow__title">How a payment moves through the system</h3>
           <ol class="flow__steps">
-            <li><strong>Sign in.</strong> The user logs in through Keycloak, which verifies the credentials and returns a JWT access token.</li>
-            <li><strong>Call the gateway.</strong> The client sends <code>POST</code> payment with the bearer token. The gateway fetches Keycloak's signing keys (JWKS) as needed and checks signature, expiry, issuer and audience. An invalid token gets <code>401 Unauthorized</code>.</li>
-            <li><strong>Create the payment.</strong> The payment service validates the request, checks the idempotency key, saves the payment as pending in PostgreSQL and returns <code>201 Created</code>.</li>
-            <li><strong>Publish the event.</strong> The payment service publishes a payment-created event to Kafka.</li>
-            <li><strong>Evaluate fraud.</strong> The fraud-detection service consumes the event, runs its rules and publishes an approve or flag decision.</li>
-            <li><strong>Update and notify.</strong> The payment service updates the payment status from the decision, and the notification service sends the email.</li>
+            <li><span class="flow__n">01</span><p><strong>Sign in.</strong> The user logs in through Keycloak, which verifies the credentials and returns a JWT access token.</p></li>
+            <li><span class="flow__n">02</span><p><strong>Call the gateway.</strong> The client sends <code>POST</code> payment with the bearer token. The gateway fetches Keycloak's signing keys (JWKS) as needed and checks signature, expiry, issuer and audience. An invalid token gets <code>401 Unauthorized</code>.</p></li>
+            <li><span class="flow__n">03</span><p><strong>Create the payment.</strong> The payment service validates the request, checks the idempotency key, saves the payment as pending in PostgreSQL and returns <code>201 Created</code>.</p></li>
+            <li><span class="flow__n">04</span><p><strong>Publish the event.</strong> The payment service publishes a payment-created event to Kafka.</p></li>
+            <li><span class="flow__n">05</span><p><strong>Evaluate fraud.</strong> The fraud-detection service consumes the event, runs its rules and publishes an approve or flag decision.</p></li>
+            <li><span class="flow__n">06</span><p><strong>Update and notify.</strong> The payment service updates the payment status from the decision, and the notification service sends the email.</p></li>
           </ol>
         </div>
       </div>
@@ -429,75 +356,56 @@
     <section class="section skills" id="skills">
       <div class="container">
         <header class="section__head">
-          <span class="eyebrow eyebrow--accent">Technical skills</span>
-          <h2 class="section__title">What I Work With</h2>
+          <p class="endpoint"><span>GET</span> /skills</p>
+          <h2 class="section__title">Technical skills</h2>
         </header>
 
-        <div class="skill-groups">
-          <div class="skill-group" data-tilt>
-            <h3>Languages</h3>
-            <ul class="skill-list"><li>Java</li><li>SQL</li><li>C++</li><li>JavaScript</li></ul>
-          </div>
-          <div class="skill-group" data-tilt>
-            <h3>Backend</h3>
-            <ul class="skill-list"><li>Spring Boot</li><li>Spring Security</li><li>Spring Data JPA</li><li>Hibernate</li><li>GraphQL</li><li>REST APIs</li><li>Spring Cloud Gateway</li></ul>
-          </div>
-          <div class="skill-group" data-tilt>
-            <h3>Messaging &amp; Security</h3>
-            <ul class="skill-list"><li>Apache Kafka</li><li>OAuth2/OIDC</li><li>JWT</li><li>Keycloak</li></ul>
-          </div>
-          <div class="skill-group" data-tilt>
-            <h3>Databases</h3>
-            <ul class="skill-list"><li>PostgreSQL</li><li>Oracle</li><li>MySQL</li><li>MongoDB</li><li>Liquibase</li></ul>
-          </div>
-          <div class="skill-group" data-tilt>
-            <h3>Tools</h3>
-            <ul class="skill-list"><li>Docker Compose</li><li>Git</li><li>Splunk</li><li>AI-assisted development (Claude)</li></ul>
-          </div>
-          <div class="skill-group" data-tilt>
-            <h3>Concepts</h3>
-            <ul class="skill-list"><li>Microservices</li><li>Event-Driven Architecture</li><li>Idempotency</li><li>Query Optimization</li></ul>
-          </div>
-        </div>
+        <dl class="skill-table">
+          <div class="skill-row"><dt>Languages</dt><dd>Java, SQL, C++, JavaScript</dd></div>
+          <div class="skill-row"><dt>Backend</dt><dd>Spring Boot, Spring Security, Spring Data JPA, Hibernate, GraphQL, REST APIs, Spring Cloud Gateway</dd></div>
+          <div class="skill-row"><dt>Messaging and security</dt><dd>Apache Kafka, OAuth2/OIDC, JWT, Keycloak</dd></div>
+          <div class="skill-row"><dt>Databases</dt><dd>PostgreSQL, Oracle, MySQL, MongoDB, Liquibase</dd></div>
+          <div class="skill-row"><dt>Tools</dt><dd>Docker Compose, Git, Splunk, AI-assisted development (Claude)</dd></div>
+          <div class="skill-row"><dt>Concepts</dt><dd>Microservices, Event-Driven Architecture, Idempotency, Query Optimization</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- ===== Contact / Footer ===== -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__cta">
-          <span class="eyebrow eyebrow--accent">Let's work together</span>
-          <h2 class="section__title">Looking for a backend engineer?</h2>
-          <p>I'm open to Java backend and software engineering roles in Hyderabad, Bangalore, Delhi NCR or remote. Drop me a line.</p>
-          <a href="mailto:shashankrajjais@gmail.com" class="btn btn--primary">Get In Touch <span aria-hidden="true">↗</span></a>
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__cta">
+            <p class="endpoint"><span>POST</span> /contact</p>
+            <h2 class="section__title">Looking for a backend engineer?</h2>
+            <p>I'm open to Java backend and software engineering roles in Hyderabad, Bangalore, Delhi NCR or remote.</p>
+            <a href="mailto:shashankrajjais@gmail.com" class="btn btn--primary">Email me</a>
+          </div>
+
+          <div class="footer__contact">
+            <div class="contact-line">
+              <span class="contact-line__k">Email</span>
+              <span class="contact-line__v" id="emailText">shashankrajjais@gmail.com</span>
+              <button class="copy-btn" id="copyEmail" type="button">Copy</button>
+            </div>
+            <div class="contact-line">
+              <span class="contact-line__k">Location</span>
+              <span class="contact-line__v">Hyderabad, India</span>
+            </div>
+            <ul class="links">
+              <li><a href="https://www.github.com/shashank4868/" target="_blank" rel="noopener">GitHub<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+              <li><a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener">LinkedIn<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+              <li><a href="https://leetcode.com/u/Shashank4868/" target="_blank" rel="noopener">LeetCode<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="footer__contact">
-          <span class="eyebrow eyebrow--accent">Find me online</span>
-          <ul class="socials">
-            <li><a href="https://www.github.com/shashank4868/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 11h4M19 9v4"/></svg>LinkedIn</a></li>
-            <li><a href="https://leetcode.com/u/Shashank4868/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l6-6-6-6M12 19h8"/></svg>LeetCode</a></li>
-          </ul>
-          <div class="contact-line">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            <span class="contact-line__text" id="emailText">shashankrajjais@gmail.com</span>
-            <button class="copy-btn" id="copyEmail" type="button">Copy</button>
-          </div>
-          <div class="contact-line">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            <span class="contact-line__text">Hyderabad, India</span>
-          </div>
+        <div class="footer__bottom">
+          <span>© <span id="year">2026</span> Shashank Raj</span>
+          <span>Static HTML, CSS and JavaScript · Three.js for the 3D scene</span>
         </div>
       </div>
-
-      <div class="footer__bottom">
-        <span>© <span id="year">2026</span> Shashank Raj. All rights reserved.</span>
-        <span>Built with HTML, CSS &amp; JavaScript</span>
-      </div>
-    </div>
-  </footer>
+    </footer>
   </main>
 
   <script src="js/main.js"></script>
