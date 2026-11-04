@@ -5,7 +5,7 @@ Personal portfolio of Shashank Raj, Java backend engineer. Plain HTML, CSS and J
 ```
 index.html          the page
 css/style.css       all styles
-js/main.js          nav, stacked sections, tabs, 3D loader, copy email
+js/main.js          theme switch, frosted nav, scroll reveals, sticky story, tabs, 3D loader, copy email
 js/paynow3d.js      live 3D Paynow architecture (three.js, loaded on demand)
 assets/             photo, resume PDF, diagrams
 ```

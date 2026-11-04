@@ -6,155 +6,140 @@
   <title>Shashank Raj</title>
   <meta name="claude:viewport-fit-sides" content="cover">
   <meta name="description" content="Shashank Raj, Java backend engineer at Deloitte USI. Spring Boot microservices, GraphQL/REST APIs and event-driven systems with Apache Kafka.">
+  <meta name="theme-color" content="#ffffff" id="themeColor">
+  <script>(function(){var t=null;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ===== Navbar ===== -->
+  <!-- ===== Navigation (frosted) ===== -->
   <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a class="logo" href="#home" aria-label="Shashank Raj, home">Shashank Raj</a>
+    <div class="nav__inner">
+      <a class="nav__logo" href="#home" aria-label="Shashank Raj, home">Shashank Raj</a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#home" class="is-active">Home</a>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Project</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--primary btn--sm nav__cta-mobile" download>Download CV</a>
       </nav>
 
-      <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--secondary btn--sm nav__cta" download>Download CV</a>
-
-      <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span>
-      </button>
+      <div class="nav__tools">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
+        </button>
+        <button class="icon-btn nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
     <!-- ===== Hero ===== -->
-    <section class="hero" id="home">
-      <div class="container hero__grid">
-
-        <div class="hero__copy">
-          <p class="endpoint"><span>GET</span> /</p>
-          <h1 class="hero__title">Shashank Raj</h1>
-          <p class="hero__role">Java backend engineer building Spring Boot microservices and APIs for financial services</p>
-          <p class="hero__lede">
-            Two years at Deloitte USI on a global asset-management client in a regulated financial environment:
-            GraphQL/REST APIs, production support, SQL performance tuning and event-driven systems with Apache Kafka.
-          </p>
-
-          <div class="hero__actions">
-            <a href="#projects" class="btn btn--primary">See the payment system</a>
-            <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--secondary" download>
-              Download CV
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
-            </a>
-          </div>
-
-          <ul class="hero__stack" aria-label="Works with"><li>Java</li><li>Spring Boot</li><li>Apache Kafka</li><li>PostgreSQL</li><li>GraphQL</li><li>Docker Compose</li><li>Git</li></ul>
+    <section class="band hero" id="home">
+      <div class="wrap hero__text">
+        <p class="eyebrow" data-reveal>Java Backend Engineer</p>
+        <h1 class="display" data-reveal style="--d:80ms">Shashank Raj</h1>
+        <p class="hero__sub" data-reveal style="--d:160ms">Spring Boot microservices and APIs for financial services. Built at Deloitte USI. Built to stay up.</p>
+        <div class="cta-row" data-reveal style="--d:240ms">
+          <a href="#projects" class="btn btn--primary">See the payment system</a>
+          <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--ghost" download>Download CV</a>
         </div>
+      </div>
 
-        <figure class="hero__visual">
-          <div class="portrait">
+      <div class="wrap wrap--wide">
+        <figure class="hero-tile" id="heroTile" data-reveal style="--d:320ms">
+          <div class="hero-tile__photo">
             <img src="assets/profile.png" alt="Shashank Raj" width="760" height="862">
           </div>
-
-          <!-- The moment: a real result from the resume, set as a production trace -->
-          <div class="trace" aria-label="Production API response time after query tuning: about 5,000 milliseconds before, 300 to 600 milliseconds after">
-            <div class="trace__head">
-              <span>Production API response time</span>
+          <div class="hero-tile__stat" aria-label="Production API response time cut by about 90 percent, from about 5,000 milliseconds to 300 to 600 milliseconds">
+            <p class="hero-tile__k">Production API response time</p>
+            <p class="hero-tile__big">~90<span>%</span></p>
+            <p class="hero-tile__unit">faster</p>
+            <div class="meter">
+              <div class="meter__row"><span>Before</span><span class="meter__bar"><i style="--w:100%"></i></span><span class="meter__v">~5,000 ms</span></div>
+              <div class="meter__row is-after"><span>After</span><span class="meter__bar"><i style="--w:12%"></i></span><span class="meter__v">300–600 ms</span></div>
             </div>
-            <div class="trace__row">
-              <span class="trace__k">before</span>
-              <span class="trace__bar"><i style="--w:100%"></i></span>
-              <span class="trace__v">~5,000 ms</span>
-            </div>
-            <div class="trace__row is-after">
-              <span class="trace__k">after</span>
-              <span class="trace__bar"><i style="--w:12%"></i></span>
-              <span class="trace__v">300–600 ms</span>
-            </div>
-            <div class="trace__foot">~90% faster · targeted indexing and query rewrites</div>
+            <p class="hero-tile__note">Targeted indexing and query rewrites on PostgreSQL and Oracle.</p>
           </div>
         </figure>
-
+        <ul class="tech-line" aria-label="Works with" data-reveal>
+          <li>Java</li><li>Spring Boot</li><li>Apache Kafka</li><li>PostgreSQL</li><li>GraphQL</li><li>Docker Compose</li><li>Git</li>
+        </ul>
       </div>
     </section>
 
     <!-- ===== About ===== -->
-    <section class="section about" id="about">
-      <div class="container about__grid">
-        <div class="about__copy">
-          <p class="endpoint"><span>GET</span> /about</p>
-          <h2 class="section__title">Backend systems for a regulated financial environment</h2>
-          <p>
-            I'm a Java backend engineer with 2 years at Deloitte USI, building Spring Boot microservices and
-            GraphQL/REST APIs for a global asset-management client. My work covers production support,
-            SQL performance tuning and event-driven systems with Apache Kafka.
-          </p>
-          <p>
-            I keep my fundamentals sharp too: 650+ LeetCode problems solved and a 9.11 CGPA.
-          </p>
-          <a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener" class="text-link">
-            LinkedIn profile
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-          </a>
-        </div>
+    <section class="band band--alt" id="about">
+      <div class="wrap center">
+        <p class="eyebrow" data-reveal>About</p>
+        <h2 class="headline" data-reveal style="--d:80ms">Two years on production financial systems.</h2>
+        <p class="lead" data-reveal style="--d:160ms">
+          I'm a Java backend engineer with 2 years at Deloitte USI, building Spring Boot microservices and
+          GraphQL/REST APIs for a global asset-management client in a regulated financial environment.
+          My work covers production support, SQL performance tuning and event-driven systems with Apache Kafka.
+        </p>
+        <p class="lead lead--small" data-reveal style="--d:200ms">I keep my fundamentals sharp too: 650+ LeetCode problems solved and a 9.11 CGPA.</p>
+        <a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener" class="more" data-reveal style="--d:240ms">Connect on LinkedIn</a>
+      </div>
 
-        <dl class="stats">
-          <div class="stat"><dt>Years at Deloitte USI</dt><dd>2</dd></div>
-          <div class="stat"><dt>LeetCode problems solved</dt><dd>650+</dd></div>
-          <div class="stat"><dt>Applause Awards at Deloitte</dt><dd>3</dd></div>
-          <div class="stat"><dt>CGPA, B.Tech IT</dt><dd>9.11</dd></div>
+      <div class="wrap wrap--wide">
+        <dl class="stat-grid">
+          <div class="tile stat" data-reveal><dd>2</dd><dt>Years at Deloitte USI</dt></div>
+          <div class="tile stat" data-reveal style="--d:80ms"><dd>650+</dd><dt>LeetCode problems solved</dt></div>
+          <div class="tile stat" data-reveal style="--d:160ms"><dd>3</dd><dt>Applause Awards at Deloitte</dt></div>
+          <div class="tile stat" data-reveal style="--d:240ms"><dd>9.11</dd><dt>CGPA, B.Tech IT</dt></div>
         </dl>
       </div>
     </section>
 
     <!-- ===== Experience ===== -->
-    <section class="section experience" id="experience">
-      <div class="container">
-        <header class="section__head">
-          <p class="endpoint"><span>GET</span> /experience</p>
-          <h2 class="section__title">Experience</h2>
-        </header>
+    <section class="band" id="experience">
+      <div class="wrap center">
+        <p class="eyebrow" data-reveal>Experience</p>
+        <h2 class="headline" data-reveal style="--d:80ms">Where I've worked.</h2>
+      </div>
 
-        <ol class="timeline">
-          <li class="job">
-            <p class="job__dates">Oct 2024 – Present</p>
-            <div class="job__body">
-              <h3>Software Engineer I</h3>
+      <div class="wrap wrap--wide jobs">
+        <article class="tile job" data-reveal>
+          <header class="job__head">
+            <div>
+              <h3 class="job__title">Software Engineer I</h3>
               <p class="job__org">Deloitte USI</p>
-              <ul class="points">
-                <li>Resolved <span class="num">5–6</span> high-priority production incidents daily across distributed Spring Boot microservices, using Splunk logs and service health checks to trace root causes such as slow SQL queries and unavailable APIs.</li>
-                <li>Optimized slow PostgreSQL/Oracle queries through targeted indexing and query rewrites, cutting response times from <span class="num">~5s</span> to <span class="num">300–600ms</span> (<span class="num">~90%</span> faster) on production APIs.</li>
-                <li>Contributed to a GraphQL modernization effort, implementing <span class="num">5–8</span> GraphQL APIs (schema, resolvers, mappers, data-access layer) to expose holdings data from legacy tables to downstream microservices.</li>
-                <li>Developed and maintained backend microservices in Java and Spring Boot with Hibernate/JPA, supporting financial data pipelines and REST APIs.</li>
-              </ul>
             </div>
-          </li>
-          <li class="job">
-            <p class="job__dates">May 2023 – Jul 2023</p>
-            <div class="job__body">
-              <h3>Product &amp; Engineering Intern</h3>
-              <p class="job__org">HighRadius</p>
-              <ul class="points">
-                <li>Built a fintech B2B SaaS application using React.js, Java Servlets, and a machine learning model for predictive analytics.</li>
-                <li>Developed an order-amount prediction feature forecasting each customer's next purchase value, enabling proactive inventory and revenue planning.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
+            <p class="job__dates">Oct 2024 – Present</p>
+          </header>
+          <ul class="points">
+            <li>Resolved <b>5–6</b> high-priority production incidents daily across distributed Spring Boot microservices, using Splunk logs and service health checks to trace root causes such as slow SQL queries and unavailable APIs.</li>
+            <li>Optimized slow PostgreSQL/Oracle queries through targeted indexing and query rewrites, cutting response times from <b>~5s</b> to <b>300–600ms</b> (<b>~90%</b> faster) on production APIs.</li>
+            <li>Contributed to a GraphQL modernization effort, implementing <b>5–8</b> GraphQL APIs (schema, resolvers, mappers, data-access layer) to expose holdings data from legacy tables to downstream microservices.</li>
+            <li>Developed and maintained backend microservices in Java and Spring Boot with Hibernate/JPA, supporting financial data pipelines and REST APIs.</li>
+          </ul>
+        </article>
 
-        <div class="edu-ach">
-          <div class="panel">
-            <h3 class="panel__title">Education</h3>
+        <article class="tile job" data-reveal>
+          <header class="job__head">
+            <div>
+              <h3 class="job__title">Product &amp; Engineering Intern</h3>
+              <p class="job__org">HighRadius</p>
+            </div>
+            <p class="job__dates">May 2023 – Jul 2023</p>
+          </header>
+          <ul class="points">
+            <li>Built a fintech B2B SaaS application using React.js, Java Servlets, and a machine learning model for predictive analytics.</li>
+            <li>Developed an order-amount prediction feature forecasting each customer's next purchase value, enabling proactive inventory and revenue planning.</li>
+          </ul>
+        </article>
+
+        <div class="duo">
+          <article class="tile" data-reveal>
+            <h3 class="tile__title">Education</h3>
             <div class="edu">
               <div class="edu__row"><span class="edu__name">B.Tech in Information Technology</span><span class="job__dates">2020 – 2024</span></div>
               <p>KIIT, Bhubaneswar · CGPA: 9.11 / 10</p>
@@ -163,51 +148,44 @@
               <div class="edu__row"><span class="edu__name">Intermediate (Science)</span><span class="job__dates">2020</span></div>
               <p>St. Xavier's Intermediate College, Ranchi · 88.6% · 9th State Rank</p>
             </div>
-          </div>
-          <div class="panel">
-            <h3 class="panel__title">Achievements and leadership</h3>
+          </article>
+          <article class="tile" data-reveal style="--d:80ms">
+            <h3 class="tile__title">Achievements and leadership</h3>
             <ul class="points">
               <li>Received 3 Applause Awards at Deloitte for rapid project onboarding, resolving critical production incidents with minimal guidance, and delivering API performance optimizations.</li>
               <li>Solved 650+ LeetCode problems, including 125 in Dynamic Programming; earned the 500 Days badge.</li>
               <li>Led the competitive programming team at IoT Lab, KIIT, organizing coding events and hackathons (Jan 2022 – May 2024).</li>
             </ul>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== Featured project ===== -->
-    <section class="section feature" id="projects">
-      <div class="container">
-        <header class="section__head feature__head">
-          <div>
-            <p class="endpoint"><span>GET</span> /projects/paynow</p>
-            <h2 class="section__title">Distributed Payment Processing System</h2>
-            <p class="feature__intro">
-              An event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection,
-              notification, user-profile/auth) communicating asynchronously over Kafka.
-            </p>
-          </div>
-          <div class="feature__actions">
-            <a class="btn btn--primary" href="https://github.com/Shashank4868/Paynow" target="_blank" rel="noopener">
-              View code on GitHub
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            </a>
-            <span class="meta">Personal project</span>
-          </div>
-        </header>
+    <!-- ===== Featured project (always a dark band, like a Pro product) ===== -->
+    <section class="band band--dark" id="projects">
+      <div class="wrap center">
+        <p class="eyebrow" data-reveal>Featured project</p>
+        <h2 class="headline" data-reveal style="--d:80ms">Distributed Payment Processing System.</h2>
+        <p class="lead" data-reveal style="--d:160ms">
+          An event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection,
+          notification, user-profile/auth) communicating asynchronously over Kafka.
+        </p>
+        <div class="cta-row" data-reveal style="--d:240ms">
+          <a class="btn btn--primary" href="https://github.com/Shashank4868/Paynow" target="_blank" rel="noopener">View code on GitHub</a>
+          <span class="meta">Personal project</span>
+        </div>
+        <ul class="tech-line" aria-label="Tech stack" data-reveal style="--d:280ms">
+          <li>Java 17</li><li>Spring Boot 4.1</li><li>Spring Cloud Gateway</li><li>Spring Security</li><li>Keycloak</li><li>Apache Kafka</li><li>PostgreSQL</li><li>Liquibase</li><li>Docker Compose</li>
+        </ul>
+      </div>
 
-        <ul class="stack-line" aria-label="Tech stack"><li>Java 17</li><li>Spring Boot 4.1</li><li>Spring Cloud Gateway</li><li>Spring Security</li><li>Keycloak</li><li>Apache Kafka</li><li>PostgreSQL</li><li>Liquibase</li><li>Docker Compose</li></ul>
-
-        <!-- Diagram tabs -->
-        <div class="diagram-panel">
-          <div class="tabs" role="tablist" aria-label="Diagrams">
+      <div class="wrap wrap--wide">
+        <div class="tile tile--flush diagram-panel" data-reveal>
+          <div class="tabs" role="tablist" aria-label="Views">
             <button class="tab is-active" role="tab" id="tab-3d" aria-selected="true" aria-controls="panel-3d" type="button">Live 3D</button>
-            <button class="tab" role="tab" id="tab-arch" aria-selected="false" aria-controls="panel-arch" tabindex="-1" type="button">Architecture</button>
-            <button class="tab" role="tab" id="tab-seq" aria-selected="false" aria-controls="panel-seq" tabindex="-1" type="button">Auth and payment flow</button>
+            <button class="tab" role="tab" id="tab-seq" aria-selected="false" aria-controls="panel-seq" tabindex="-1" type="button">Auth and payment sequence</button>
           </div>
 
-          <!-- Live 3D simulation (three.js loads only when this section is near the viewport) -->
           <div class="tabpanel" role="tabpanel" id="panel-3d" aria-labelledby="tab-3d">
             <div class="p3d" id="p3d">
               <div class="p3d__stage">
@@ -227,10 +205,10 @@
                   <h4 class="p3d__h">Send traffic</h4>
                   <div class="p3d__btns">
                     <button class="btn btn--primary btn--sm" type="button" data-act="pay">Send payment</button>
-                    <button class="btn btn--secondary btn--sm" type="button" data-act="login">Log in</button>
-                    <button class="btn btn--secondary btn--sm" type="button" data-act="bad">Invalid token</button>
-                    <button class="btn btn--secondary btn--sm" type="button" data-act="dup">Retry same key</button>
-                    <button class="btn btn--secondary btn--sm p3d__auto" type="button" data-act="auto" aria-pressed="true">Auto traffic: on</button>
+                    <button class="btn btn--ghost btn--sm" type="button" data-act="login">Log in</button>
+                    <button class="btn btn--ghost btn--sm" type="button" data-act="bad">Invalid token</button>
+                    <button class="btn btn--ghost btn--sm" type="button" data-act="dup">Retry same key</button>
+                    <button class="btn btn--ghost btn--sm p3d__auto" type="button" data-act="auto" aria-pressed="true">Auto traffic: on</button>
                   </div>
                 </div>
                 <dl class="p3d__stats">
@@ -249,164 +227,138 @@
                 </div>
               </aside>
             </div>
-            <p class="diagram-note">A browser simulation of the real request flow. Packets turn green when approved, red when flagged or rejected, amber on a duplicate retry.</p>
-          </div>
-
-          <div class="tabpanel" role="tabpanel" id="panel-arch" aria-labelledby="tab-arch" hidden>
-            <div class="scroll-x">
-              <svg class="arch" viewBox="0 0 1020 470" text-anchor="middle" role="img" aria-labelledby="archTitle">
-                <title id="archTitle">Architecture: the client signs in with Keycloak and calls the API gateway with a JWT. The gateway validates the token using Keycloak's signing keys and routes to the payment service and user-profile/auth service. The payment service stores payments in PostgreSQL and publishes to the payment.created topic. The fraud-detection service consumes it and publishes to payment.decision, which updates the payment status, and to the notification topic, which the notification service consumes to send email.</title>
-                <defs>
-                  <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="a-head"/></marker>
-                </defs>
-
-                <g class="a-kafka">
-                  <rect x="600" y="40" width="160" height="400" rx="12"/>
-                  <text x="680" y="68" class="a-kafka__name">Apache Kafka</text>
-                </g>
-                <g class="a-topic"><rect x="614" y="90" width="132" height="40" rx="8"/><text x="680" y="115">payment.created</text></g>
-                <g class="a-topic"><rect x="614" y="200" width="132" height="40" rx="8"/><text x="680" y="225">payment.decision</text></g>
-                <g class="a-topic"><rect x="614" y="330" width="132" height="40" rx="8"/><text x="680" y="355">notification</text></g>
-
-                <g class="a-node a-client"><rect x="20" y="170" width="110" height="60" rx="10"/><text x="75" y="197">Client</text><text class="a-sub" x="75" y="214">web / mobile</text></g>
-                <g class="a-node"><rect x="170" y="20" width="160" height="64" rx="10"/><text x="250" y="47">Keycloak</text><text class="a-sub" x="250" y="65">OAuth2 / OIDC · JWT</text></g>
-                <g class="a-node a-hl"><rect x="170" y="160" width="160" height="80" rx="10"/><text x="250" y="190">API Gateway</text><text class="a-sub" x="250" y="208">Spring Cloud Gateway</text><text class="a-sub" x="250" y="224">JWT resource server</text></g>
-                <g class="a-node"><rect x="170" y="330" width="160" height="64" rx="10"/><text x="250" y="358">User profile / auth</text><text class="a-sub" x="250" y="376">service</text></g>
-                <g class="a-node a-hl"><rect x="380" y="150" width="170" height="100" rx="10"/><text x="465" y="180">Payment</text><text class="a-sub" x="465" y="198">idempotency keys</text><text class="a-sub" x="465" y="214">status transitions</text><text class="a-sub" x="465" y="230">REST API</text></g>
-                <g class="a-db">
-                  <path d="M395 330v60c0 9 31 16 70 16s70-7 70-16v-60"/>
-                  <ellipse cx="465" cy="330" rx="70" ry="14"/>
-                  <text x="465" y="366">PostgreSQL</text><text class="a-sub" x="465" y="384">Liquibase schema</text>
-                </g>
-                <g class="a-node"><rect x="840" y="80" width="160" height="90" rx="10"/><text x="920" y="112">Fraud detection</text><text class="a-sub" x="920" y="130">evaluates rules</text><text class="a-sub" x="920" y="146">approve / flag</text></g>
-                <g class="a-node"><rect x="840" y="380" width="160" height="70" rx="10"/><text x="920" y="410">Notification</text><text class="a-sub" x="920" y="428">sends email (SMTP)</text></g>
-
-                <path class="a-edge" d="M75 170V52H168" marker-end="url(#ah)"/>
-                <text class="a-label" x="84" y="104" text-anchor="start">1 · log in</text>
-                <text class="a-label" x="84" y="118" text-anchor="start">→ JWT</text>
-                <path class="a-edge" d="M130 200H168" marker-end="url(#ah)"/>
-                <text class="a-label" x="75" y="252">2 · Bearer JWT</text>
-                <path class="a-edge a-dashed" d="M250 160V86" marker-end="url(#ah)"/>
-                <text class="a-label" x="258" y="126" text-anchor="start">JWKS keys</text>
-                <path class="a-edge" d="M330 200H378" marker-end="url(#ah)"/>
-                <text class="a-label" x="354" y="190" text-anchor="middle">3</text>
-                <path class="a-edge" d="M250 240V328" marker-end="url(#ah)"/>
-                <path class="a-edge" d="M465 250V314" marker-end="url(#ah)"/>
-                <text class="a-label" x="472" y="290" text-anchor="start">save PENDING</text>
-                <path class="a-edge" d="M550 170H576V110H612" marker-end="url(#ah)"/>
-                <text class="a-label" x="582" y="100" text-anchor="end">4 · publish</text>
-                <path class="a-edge" d="M746 110H838" marker-end="url(#ah)"/>
-                <text class="a-label" x="792" y="102" text-anchor="middle">5 · consume</text>
-                <path class="a-edge" d="M870 170V220H748" marker-end="url(#ah)"/>
-                <text class="a-label" x="808" y="212" text-anchor="middle">6 · decision</text>
-                <path class="a-edge a-dashed" d="M614 220H582V230H552" marker-end="url(#ah)"/>
-                <text class="a-label" x="582" y="270">7 · update status</text>
-                <path class="a-edge" d="M900 170V350H748" marker-end="url(#ah)"/>
-                <text class="a-label" x="824" y="342" text-anchor="middle">email event</text>
-                <path class="a-edge" d="M680 370V415H838" marker-end="url(#ah)"/>
-                <text class="a-label" x="760" y="407" text-anchor="middle">8 · consume</text>
-              </svg>
-            </div>
-            <p class="diagram-note">On a phone, scroll sideways. Kafka topic names match the repo: <code>payment.created</code>, <code>payment.decision</code> and the notification topic.</p>
+            <p class="note">A browser simulation of the real request flow. Packets turn green when approved, red when flagged or rejected, amber on a duplicate retry.</p>
           </div>
 
           <div class="tabpanel" role="tabpanel" id="panel-seq" aria-labelledby="tab-seq" hidden>
             <div class="scroll-x scroll-x--seq">
               <img class="seq-img" src="assets/paynow-sequence.png" alt="Sequence diagram: registration and login through Keycloak, then a payment request through the API gateway, token validation with a 401 path for invalid tokens, idempotency check, saving the payment as pending, publishing the payment-created event, fraud evaluation, decision and status update, and the email notification." width="2800" height="1965" loading="lazy">
             </div>
-            <p class="diagram-note">Scroll sideways to follow the flow. <a href="assets/paynow-sequence.png" target="_blank" rel="noopener">Open full size</a></p>
+            <p class="note">Scroll sideways to follow the flow. <a href="assets/paynow-sequence.png" target="_blank" rel="noopener">Open full size</a></p>
           </div>
         </div>
 
-        <!-- Resume bullets, word for word -->
-        <div class="highlights">
-          <article class="hl">
-            <h3>Event-driven microservices</h3>
+        <div class="hl-grid">
+          <article class="tile hl" data-reveal>
+            <h3>Event-driven microservices.</h3>
             <p>Built an event-driven payment platform of 5 Spring Boot microservices (API gateway, payment, fraud-detection, notification, user-profile/auth) communicating asynchronously over Kafka.</p>
           </article>
-          <article class="hl">
-            <h3>OAuth2 / OIDC security</h3>
+          <article class="tile hl" data-reveal style="--d:80ms">
+            <h3>OAuth2 / OIDC security.</h3>
             <p>Secured the gateway and services with OAuth2/OIDC via Keycloak, validating JWT bearer tokens as Spring Security resource servers and deriving sender identity from token claims instead of request payloads.</p>
           </article>
-          <article class="hl">
-            <h3>Idempotent payments</h3>
+          <article class="tile hl" data-reveal>
+            <h3>Idempotent payments.</h3>
             <p>Implemented idempotent payment creation with idempotency keys backed by a database uniqueness constraint, plus status-transition rules and Liquibase-managed PostgreSQL schemas.</p>
           </article>
-          <article class="hl">
-            <h3>Kafka fraud pipeline</h3>
+          <article class="tile hl" data-reveal style="--d:80ms">
+            <h3>Kafka fraud pipeline.</h3>
             <p>Designed a Kafka pipeline where a fraud-detection service evaluates payment events and publishes approve/flag decisions that update payment status and trigger email notifications.</p>
           </article>
         </div>
+      </div>
 
-        <div class="flow">
-          <h3 class="flow__title">How a payment moves through the system</h3>
-          <ol class="flow__steps">
-            <li><span class="flow__n">01</span><p><strong>Sign in.</strong> The user logs in through Keycloak, which verifies the credentials and returns a JWT access token.</p></li>
-            <li><span class="flow__n">02</span><p><strong>Call the gateway.</strong> The client sends <code>POST</code> payment with the bearer token. The gateway fetches Keycloak's signing keys (JWKS) as needed and checks signature, expiry, issuer and audience. An invalid token gets <code>401 Unauthorized</code>.</p></li>
-            <li><span class="flow__n">03</span><p><strong>Create the payment.</strong> The payment service validates the request, checks the idempotency key, saves the payment as pending in PostgreSQL and returns <code>201 Created</code>.</p></li>
-            <li><span class="flow__n">04</span><p><strong>Publish the event.</strong> The payment service publishes a payment-created event to Kafka.</p></li>
-            <li><span class="flow__n">05</span><p><strong>Evaluate fraud.</strong> The fraud-detection service consumes the event, runs its rules and publishes an approve or flag decision.</p></li>
-            <li><span class="flow__n">06</span><p><strong>Update and notify.</strong> The payment service updates the payment status from the decision, and the notification service sends the email.</p></li>
+      <!-- Sticky scroll story: the architecture stays pinned while each step lights up its part -->
+      <div class="wrap wrap--wide story" id="story">
+        <h3 class="story__title" data-reveal>How a payment moves through the system.</h3>
+        <div class="story__grid">
+          <div class="story__visual">
+            <div class="tile tile--flush story__frame">
+              <svg class="arch" viewBox="0 0 1020 470" text-anchor="middle" role="img" aria-labelledby="archTitle">
+                <title id="archTitle">Architecture: the client signs in with Keycloak and calls the API gateway with a JWT. The gateway validates the token using Keycloak's signing keys and routes to the payment service and user-profile/auth service. The payment service stores payments in PostgreSQL and publishes to the payment.created topic. The fraud-detection service consumes it and publishes to payment.decision, which updates the payment status, and to the notification topic, which the notification service consumes to send email.</title>
+                <defs>
+                  <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="a-head"/></marker>
+                </defs>
+
+                <g class="a-kafka" data-s="4 5 6"><rect x="600" y="40" width="160" height="400" rx="14"/><text x="680" y="68" class="a-kafka__name">Apache Kafka</text></g>
+                <g class="a-topic" data-s="4 5"><rect x="614" y="90" width="132" height="40" rx="10"/><text x="680" y="115">payment.created</text></g>
+                <g class="a-topic" data-s="5 6"><rect x="614" y="200" width="132" height="40" rx="10"/><text x="680" y="225">payment.decision</text></g>
+                <g class="a-topic" data-s="6"><rect x="614" y="330" width="132" height="40" rx="10"/><text x="680" y="355">notification</text></g>
+
+                <g class="a-node a-client" data-s="1 2"><rect x="20" y="170" width="110" height="60" rx="12"/><text x="75" y="197">Client</text><text class="a-sub" x="75" y="214">web / mobile</text></g>
+                <g class="a-node" data-s="1 2"><rect x="170" y="20" width="160" height="64" rx="12"/><text x="250" y="47">Keycloak</text><text class="a-sub" x="250" y="65">OAuth2 / OIDC · JWT</text></g>
+                <g class="a-node" data-s="2 3"><rect x="170" y="160" width="160" height="80" rx="12"/><text x="250" y="190">API Gateway</text><text class="a-sub" x="250" y="208">Spring Cloud Gateway</text><text class="a-sub" x="250" y="224">JWT resource server</text></g>
+                <g class="a-node" data-s=""><rect x="170" y="330" width="160" height="64" rx="12"/><text x="250" y="358">User profile / auth</text><text class="a-sub" x="250" y="376">service</text></g>
+                <g class="a-node" data-s="3 4 6"><rect x="380" y="150" width="170" height="100" rx="12"/><text x="465" y="180">Payment</text><text class="a-sub" x="465" y="198">idempotency keys</text><text class="a-sub" x="465" y="214">status transitions</text><text class="a-sub" x="465" y="230">REST API</text></g>
+                <g class="a-db" data-s="3 6"><path d="M395 330v60c0 9 31 16 70 16s70-7 70-16v-60"/><ellipse cx="465" cy="330" rx="70" ry="14"/><text x="465" y="366">PostgreSQL</text><text class="a-sub" x="465" y="384">Liquibase schema</text></g>
+                <g class="a-node" data-s="5 6"><rect x="840" y="80" width="160" height="90" rx="12"/><text x="920" y="112">Fraud detection</text><text class="a-sub" x="920" y="130">evaluates rules</text><text class="a-sub" x="920" y="146">approve / flag</text></g>
+                <g class="a-node" data-s="6"><rect x="840" y="380" width="160" height="70" rx="12"/><text x="920" y="410">Notification</text><text class="a-sub" x="920" y="428">sends email (SMTP)</text></g>
+
+                <g data-s="1"><path class="a-edge" d="M75 170V52H168" marker-end="url(#ah)"/><text class="a-label" x="84" y="104" text-anchor="start">log in</text><text class="a-label" x="84" y="118" text-anchor="start">→ JWT</text></g>
+                <g data-s="2"><path class="a-edge" d="M130 200H168" marker-end="url(#ah)"/><text class="a-label" x="75" y="252">Bearer JWT</text></g>
+                <g data-s="2"><path class="a-edge a-dashed" d="M250 160V86" marker-end="url(#ah)"/><text class="a-label" x="258" y="126" text-anchor="start">JWKS keys</text></g>
+                <g data-s="3"><path class="a-edge" d="M330 200H378" marker-end="url(#ah)"/></g>
+                <g data-s=""><path class="a-edge" d="M250 240V328" marker-end="url(#ah)"/></g>
+                <g data-s="3"><path class="a-edge" d="M465 250V314" marker-end="url(#ah)"/><text class="a-label" x="472" y="290" text-anchor="start">save PENDING</text></g>
+                <g data-s="4"><path class="a-edge" d="M550 170H576V110H612" marker-end="url(#ah)"/><text class="a-label" x="582" y="100" text-anchor="end">publish</text></g>
+                <g data-s="5"><path class="a-edge" d="M746 110H838" marker-end="url(#ah)"/><text class="a-label" x="792" y="102">consume</text></g>
+                <g data-s="5"><path class="a-edge" d="M870 170V220H748" marker-end="url(#ah)"/><text class="a-label" x="808" y="212">decision</text></g>
+                <g data-s="6"><path class="a-edge a-dashed" d="M614 220H582V230H552" marker-end="url(#ah)"/><text class="a-label" x="582" y="270">update status</text></g>
+                <g data-s="6"><path class="a-edge" d="M900 170V350H748" marker-end="url(#ah)"/><text class="a-label" x="824" y="342">email event</text></g>
+                <g data-s="6"><path class="a-edge" d="M680 370V415H838" marker-end="url(#ah)"/><text class="a-label" x="760" y="407">consume</text></g>
+              </svg>
+            </div>
+          </div>
+
+          <ol class="story__steps">
+            <li class="step" data-step="1"><span class="step__n">01</span><p><strong>Sign in.</strong> The user logs in through Keycloak, which verifies the credentials and returns a JWT access token.</p></li>
+            <li class="step" data-step="2"><span class="step__n">02</span><p><strong>Call the gateway.</strong> The client sends <code>POST</code> payment with the bearer token. The gateway fetches Keycloak's signing keys (JWKS) as needed and checks signature, expiry, issuer and audience. An invalid token gets <code>401 Unauthorized</code>.</p></li>
+            <li class="step" data-step="3"><span class="step__n">03</span><p><strong>Create the payment.</strong> The payment service validates the request, checks the idempotency key, saves the payment as pending in PostgreSQL and returns <code>201 Created</code>.</p></li>
+            <li class="step" data-step="4"><span class="step__n">04</span><p><strong>Publish the event.</strong> The payment service publishes a payment-created event to Kafka.</p></li>
+            <li class="step" data-step="5"><span class="step__n">05</span><p><strong>Evaluate fraud.</strong> The fraud-detection service consumes the event, runs its rules and publishes an approve or flag decision.</p></li>
+            <li class="step" data-step="6"><span class="step__n">06</span><p><strong>Update and notify.</strong> The payment service updates the payment status from the decision, and the notification service sends the email.</p></li>
           </ol>
         </div>
       </div>
     </section>
 
     <!-- ===== Skills ===== -->
-    <section class="section skills" id="skills">
-      <div class="container">
-        <header class="section__head">
-          <p class="endpoint"><span>GET</span> /skills</p>
-          <h2 class="section__title">Technical skills</h2>
-        </header>
-
-        <dl class="skill-table">
-          <div class="skill-row"><dt>Languages</dt><dd>Java, SQL, C++, JavaScript</dd></div>
-          <div class="skill-row"><dt>Backend</dt><dd>Spring Boot, Spring Security, Spring Data JPA, Hibernate, GraphQL, REST APIs, Spring Cloud Gateway</dd></div>
-          <div class="skill-row"><dt>Messaging and security</dt><dd>Apache Kafka, OAuth2/OIDC, JWT, Keycloak</dd></div>
-          <div class="skill-row"><dt>Databases</dt><dd>PostgreSQL, Oracle, MySQL, MongoDB, Liquibase</dd></div>
-          <div class="skill-row"><dt>Tools</dt><dd>Docker Compose, Git, Splunk, AI-assisted development (Claude)</dd></div>
-          <div class="skill-row"><dt>Concepts</dt><dd>Microservices, Event-Driven Architecture, Idempotency, Query Optimization</dd></div>
-        </dl>
+    <section class="band band--alt" id="skills">
+      <div class="wrap center">
+        <p class="eyebrow" data-reveal>Skills</p>
+        <h2 class="headline" data-reveal style="--d:80ms">The tools behind the work.</h2>
+      </div>
+      <div class="wrap wrap--wide">
+        <div class="skill-grid">
+          <div class="tile skill" data-reveal><h3>Languages</h3><p>Java, SQL, C++, JavaScript</p></div>
+          <div class="tile skill" data-reveal style="--d:60ms"><h3>Backend</h3><p>Spring Boot, Spring Security, Spring Data JPA, Hibernate, GraphQL, REST APIs, Spring Cloud Gateway</p></div>
+          <div class="tile skill" data-reveal style="--d:120ms"><h3>Messaging and security</h3><p>Apache Kafka, OAuth2/OIDC, JWT, Keycloak</p></div>
+          <div class="tile skill" data-reveal><h3>Databases</h3><p>PostgreSQL, Oracle, MySQL, MongoDB, Liquibase</p></div>
+          <div class="tile skill" data-reveal style="--d:60ms"><h3>Tools</h3><p>Docker Compose, Git, Splunk, AI-assisted development (Claude)</p></div>
+          <div class="tile skill" data-reveal style="--d:120ms"><h3>Concepts</h3><p>Microservices, Event-Driven Architecture, Idempotency, Query Optimization</p></div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== Contact / Footer ===== -->
-    <footer class="footer" id="contact">
-      <div class="container">
-        <div class="footer__grid">
-          <div class="footer__cta">
-            <p class="endpoint"><span>POST</span> /contact</p>
-            <h2 class="section__title">Looking for a backend engineer?</h2>
-            <p>I'm open to Java backend and software engineering roles in Hyderabad, Bangalore, Delhi NCR or remote.</p>
-            <a href="mailto:shashankrajjais@gmail.com" class="btn btn--primary">Email me</a>
-          </div>
-
-          <div class="footer__contact">
-            <div class="contact-line">
-              <span class="contact-line__k">Email</span>
-              <span class="contact-line__v" id="emailText">shashankrajjais@gmail.com</span>
-              <button class="copy-btn" id="copyEmail" type="button">Copy</button>
-            </div>
-            <div class="contact-line">
-              <span class="contact-line__k">Location</span>
-              <span class="contact-line__v">Hyderabad, India</span>
-            </div>
-            <ul class="links">
-              <li><a href="https://www.github.com/shashank4868/" target="_blank" rel="noopener">GitHub<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
-              <li><a href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener">LinkedIn<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
-              <li><a href="https://leetcode.com/u/Shashank4868/" target="_blank" rel="noopener">LeetCode<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
-            </ul>
-          </div>
+    <!-- ===== Contact ===== -->
+    <section class="band contact" id="contact">
+      <div class="wrap center">
+        <p class="eyebrow" data-reveal>Contact</p>
+        <h2 class="headline" data-reveal style="--d:80ms">Looking for a backend engineer?</h2>
+        <p class="lead" data-reveal style="--d:160ms">I'm open to Java backend and software engineering roles in Hyderabad, Bangalore, Delhi NCR or remote.</p>
+        <div class="cta-row" data-reveal style="--d:240ms">
+          <a href="mailto:shashankrajjais@gmail.com" class="btn btn--primary">Email me</a>
+          <a href="assets/Shashank_Raj_Resume.pdf" class="btn btn--ghost" download>Download CV</a>
         </div>
-
-        <div class="footer__bottom">
-          <span>© <span id="year">2026</span> Shashank Raj</span>
-          <span>Static HTML, CSS and JavaScript · Three.js for the 3D scene</span>
+        <div class="email-line" data-reveal style="--d:280ms">
+          <span id="emailText">shashankrajjais@gmail.com</span>
+          <button class="copy-btn" id="copyEmail" type="button">Copy</button>
         </div>
+        <ul class="link-row" data-reveal style="--d:320ms">
+          <li><a class="more" href="https://www.github.com/shashank4868/" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a class="more" href="https://www.linkedin.com/in/shashank4868/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a class="more" href="https://leetcode.com/u/Shashank4868/" target="_blank" rel="noopener">LeetCode</a></li>
+        </ul>
       </div>
-    </footer>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="wrap wrap--wide footer__inner">
+      <span>© <span id="year">2026</span> Shashank Raj · Hyderabad, India</span>
+      <span>Static HTML, CSS and JavaScript · Three.js for the 3D scene</span>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>

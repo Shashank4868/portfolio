@@ -174,7 +174,7 @@
     addEdge('t_notif', 'notification');
 
     /* ---------- Packets ---------- */
-    var COLORS = { req: 0xe8eaee, ok: 0x5dbf8a, bad: 0xe5675f, warn: 0xf2b246 };
+    var COLORS = { req: 0xf5f5f7, ok: 0x30d158, bad: 0xff453a, warn: 0xff9f0a };  // Apple system colours (dark)
     var packets = [];
     var SPEED = reduceMotion ? 4.2 : 6.5;
     var sphereGeo = new THREE.SphereGeometry(0.2, 16, 12);
