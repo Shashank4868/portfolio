@@ -1,7 +1,6 @@
 // Shashank Raj · Portfolio
-// Theme switch, frosted nav, scroll reveals, hero tile scale, sticky story,
+// Theme switch, nav, sticky story,
 // tabs, on-demand 3D loader and copy email. No libraries.
-document.documentElement.classList.add('js');
 
 var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -23,7 +22,7 @@ var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
       btn.setAttribute('aria-pressed', String(dark));
     }
-    if (meta) meta.setAttribute('content', dark ? '#000000' : '#ffffff');
+    if (meta) meta.setAttribute('content', dark ? '#0b0b0c' : '#fbfbfd');
   }
 
   apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
@@ -62,7 +61,7 @@ var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   links.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
-  var navAnchors = Array.prototype.slice.call(links.querySelectorAll('a'));
+  var navAnchors = Array.prototype.slice.call(links.querySelectorAll('a[href^="#"]'));
   var sections = navAnchors.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
 
   var ticking = false;
@@ -89,49 +88,6 @@ var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var top = id === 'home' ? 0 : target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + 1;
     window.scrollTo({ top: Math.max(0, top), behavior: REDUCE ? 'auto' : 'smooth' });
   });
-})();
-
-/* ---------------------------------------------------------------
-   Scroll reveal: long, soft fade and rise as content arrives
-   --------------------------------------------------------------- */
-(function () {
-  var items = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-  if (REDUCE || !('IntersectionObserver' in window)) {
-    items.forEach(function (el) { el.classList.add('is-in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
-    });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-  items.forEach(function (el) { io.observe(el); });
-  // Anything already on screen at load shows straight away (with its stagger).
-  requestAnimationFrame(function () {
-    items.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.95 && r.bottom > 0) { el.classList.add('is-in'); io.unobserve(el); }
-    });
-  });
-})();
-
-/* ---------------------------------------------------------------
-   Hero tile: eases from 94% to full size as it scrolls into place
-   --------------------------------------------------------------- */
-(function () {
-  var tile = document.getElementById('heroTile');
-  if (!tile || REDUCE) return;
-  var ticking = false;
-  function update() {
-    ticking = false;
-    var r = tile.getBoundingClientRect(), vh = window.innerHeight;
-    var p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.7)));
-    var eased = 1 - Math.pow(1 - p, 3);
-    tile.style.setProperty('--hs', (0.94 + 0.06 * eased).toFixed(4));
-  }
-  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
 })();
 
 /* ---------------------------------------------------------------
